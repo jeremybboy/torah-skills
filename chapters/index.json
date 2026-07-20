@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "devarim",
+    "title": "Devarim",
+    "path": "chapters/devarim.md",
+    "status": "pilot"
+  },
+  {
+    "slug": "vaetchanan",
+    "title": "Vaetchanan",
+    "path": "chapters/vaetchanan.md",
+    "status": "pilot"
+  }
+]

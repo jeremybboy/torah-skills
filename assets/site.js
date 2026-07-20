@@ -1,17 +1,7 @@
-const chapters = {
-  devarim: {
-    title: "Devarim",
-    path: "chapters/devarim.md"
-  },
-  vaetchanan: {
-    title: "Vaetchanan",
-    path: "chapters/vaetchanan.md"
-  }
-};
-
 const chapterEl = document.querySelector("#chapter");
 const homeEl = document.querySelector("#home");
-const navLinks = [...document.querySelectorAll("[data-chapter]")];
+const chapterNavEl = document.querySelector("#chapter-nav");
+let chapters = {};
 
 function escapeHtml(value) {
   return value
@@ -102,9 +92,23 @@ function markdownToHtml(markdown) {
 }
 
 function setActive(slug) {
-  navLinks.forEach((link) => {
+  document.querySelectorAll("[data-chapter]").forEach((link) => {
     link.classList.toggle("active", link.dataset.chapter === slug);
   });
+}
+
+function renderChapterNav(items) {
+  chapterNavEl.innerHTML = items
+    .map((chapter) => `<a href="#${escapeHtml(chapter.slug)}" data-chapter="${escapeHtml(chapter.slug)}">${escapeHtml(chapter.title)}</a>`)
+    .join("");
+}
+
+async function loadChapterIndex() {
+  const response = await fetch("chapters/index.json");
+  if (!response.ok) throw new Error("Could not load chapters/index.json");
+  const items = await response.json();
+  chapters = Object.fromEntries(items.map((chapter) => [chapter.slug, chapter]));
+  renderChapterNav(items);
 }
 
 async function loadChapter(slug) {
@@ -139,4 +143,12 @@ function handleRoute() {
 }
 
 window.addEventListener("hashchange", handleRoute);
-handleRoute();
+
+loadChapterIndex()
+  .then(handleRoute)
+  .catch((error) => {
+    chapterNavEl.innerHTML = "";
+    homeEl.hidden = true;
+    chapterEl.hidden = false;
+    chapterEl.innerHTML = `<p class="load-error">${escapeHtml(error.message)}. If you opened this from the filesystem, run a local web server or publish through GitHub Pages.</p>`;
+  });
