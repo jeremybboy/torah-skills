@@ -7,6 +7,10 @@
 **Primary parashah text:** Deuteronomy 1:1-3:22.  
 **Core theme:** Devarim teaches that entering the future requires honest memory: rebuke, justice, trust, restraint, and courage must be clarified before the people cross into the land.
 
+![Moses views the Promised Land](assets/jollain-moses-promised-land.jpg)
+
+**Provenance:** *Moses Views the Promised Land* (engraving by [Gerard Jollain](https://en.wikipedia.org/wiki/Jollain_%28engravers%29) from the 1670 *La Saincte Bible*).
+
 ---
 
 ## 1. Opening Reflection
@@ -390,4 +394,4 @@ Devarim reads like a serious postmortem before a major launch. A weak postmortem
 - Peace before war: [Rashi on Deuteronomy 2:26](https://www.sefaria.org/Rashi_on_Deuteronomy.2.26), [Midrash Aggadah, Deuteronomy 2:26](https://www.sefaria.org/Midrash_Aggadah%2C_Deuteronomy.2.26), [Mishneh Torah, Kings and Wars 6:1](https://www.sefaria.org/Mishneh_Torah%2C_Kings_and_Wars.6.1)
 - Shabbat Chazon and Eichah connection: [Eicha Rabbah 1:1](https://www.sefaria.org/Eichah_Rabbah.1.1)
 - Chassidic reference: [Sefat Emet, Deuteronomy, Devarim](https://www.sefaria.org/Sefat_Emet%2C_Deuteronomy%2C_Devarim)
-
+- Illustration provenance: [Wikimedia Commons, Jollain Moses Views the Promised Land](https://commons.wikimedia.org/wiki/File:Jollain_Moses_Views_the_Promised_Land.jpg)

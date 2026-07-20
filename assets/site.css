@@ -238,6 +238,20 @@ h4 {
   border-top: 1px solid var(--rule);
 }
 
+.chapter-figure {
+  margin: 28px 0 18px;
+}
+
+.chapter-figure img,
+.chapter p img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: #efe9dc;
+  box-shadow: var(--shadow);
+}
+
 .chapter strong {
   color: #26312b;
 }

@@ -7,6 +7,7 @@ This register tracks the source baseline for each pilot chapter. It is not a rep
 - Primary text: Deuteronomy 1:1-3:22.
 - Calendar anchor: Shabbat Chazon, before Tisha B'Av.
 - Core source clusters: Sifrei Devarim, Rashi, Ramban, Sanhedrin 7a-b, Sotah 34b, Taanit 29a, Bava Kamma 38b, Mishneh Torah.
+- Chapter illustration: *Moses Views the Promised Land*, engraving by Gerard Jollain from the 1670 *La Saincte Bible*, public domain source record on Wikimedia Commons.
 
 ## Vaetchanan
 
@@ -23,4 +24,3 @@ Each chapter should identify:
 3. Whether the claim is peshat, midrash, halachah, philosophy, kabbalah, or application.
 4. Any uncertainty or disputed interpretation.
 5. Whether a calendar claim was checked against a current calendar source.
-

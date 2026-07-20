@@ -24,6 +24,7 @@ function escapeHtml(value) {
 
 function renderInline(value) {
   let text = escapeHtml(value);
+  text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
   text = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   text = text.replace(/\*([^*]+)\*/g, "<em>$1</em>");
@@ -60,6 +61,13 @@ function markdownToHtml(markdown) {
       closeLists(state, html);
       const level = heading[1].length;
       html.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
+      continue;
+    }
+
+    const image = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (image) {
+      closeLists(state, html);
+      html.push(`<figure class="chapter-figure"><img src="${escapeHtml(image[2])}" alt="${escapeHtml(image[1])}" loading="lazy"></figure>`);
       continue;
     }
 
@@ -132,4 +140,3 @@ function handleRoute() {
 
 window.addEventListener("hashchange", handleRoute);
 handleRoute();
-
