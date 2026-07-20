@@ -50,9 +50,9 @@ a:focus-visible {
 .header-image {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(90deg, rgba(16, 20, 18, 0.72), rgba(16, 20, 18, 0.34) 46%, rgba(16, 20, 18, 0.12)), url("study-table.png");
+  background-image: linear-gradient(90deg, rgba(16, 20, 18, 0.74), rgba(16, 20, 18, 0.38) 46%, rgba(16, 20, 18, 0.12)), url("study-hall.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: center 42%;
 }
 
 .header-content {
@@ -293,4 +293,3 @@ h4 {
     font-size: 1.45rem;
   }
 }
-
