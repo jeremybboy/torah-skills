@@ -1,0 +1,33 @@
+# Torah Study Companion
+
+GitHub Pages-ready preview for a Torah study companion built chapter by chapter.
+
+## Structure
+
+- `index.html` - static reader for the published site.
+- `assets/` - CSS, JavaScript, and image assets.
+- `chapters/` - Markdown chapter drafts.
+- `methodology/` - editorial rules, chapter template, and selection rubric.
+- `sources/` - source register and verification notes.
+- `reviews/` - chapter review checklist.
+
+## Local Preview
+
+From this folder:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080
+```
+
+## GitHub Pages
+
+Create a new GitHub repository from the contents of this folder. In repository settings, enable GitHub Pages and publish from the root of the default branch.
+
+Use pull requests for chapter changes. Do not treat AI-generated drafts as final until a human review confirms verse selection, source quality, and commentary accuracy.
+

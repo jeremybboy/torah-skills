@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Torah Study Companion</title>
+    <meta name="description" content="A chapter-by-chapter Torah study companion with structured parashah analysis, source notes, and review workflow.">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-image" aria-hidden="true"></div>
+      <div class="header-content">
+        <p class="eyebrow">Pilot Edition</p>
+        <h1>Torah Study Companion</h1>
+        <p class="dek">A repeatable parashah study format built around source discipline, interpretive clarity, and human review.</p>
+      </div>
+    </header>
+
+    <main class="site-shell">
+      <aside class="sidebar" aria-label="Chapter navigation">
+        <div class="sidebar-section">
+          <h2>Chapters</h2>
+          <nav class="chapter-nav">
+            <a href="#devarim" data-chapter="devarim">Devarim</a>
+            <a href="#vaetchanan" data-chapter="vaetchanan">Vaetchanan</a>
+          </nav>
+        </div>
+        <div class="sidebar-section">
+          <h2>Editorial Standard</h2>
+          <a href="methodology/selection-criteria.md">Selection Criteria</a>
+          <a href="methodology/chapter-template.md">Chapter Template</a>
+          <a href="sources/source-register.md">Source Register</a>
+          <a href="reviews/chapter-review-checklist.md">Review Checklist</a>
+        </div>
+      </aside>
+
+      <section class="reader" aria-live="polite">
+        <div id="home" class="home-view">
+          <section class="intro-band">
+            <h2>Current Pilots</h2>
+            <p>Two chapters are loaded for comparison: Devarim and Vaetchanan. The editorial question is whether the method finds the material that serious study already treats as central.</p>
+          </section>
+
+          <section class="rubric-grid" aria-label="Selection rubric">
+            <article>
+              <h3>Canonical Recurrence</h3>
+              <p>Prioritize episodes and verses retold across Torah, Tanach, Chazal, halachah, liturgy, or the calendar.</p>
+            </article>
+            <article>
+              <h3>Source Density</h3>
+              <p>Prefer material with sustained Rashi, Ramban, Sforno, Midrash, Gemara, or halachic treatment.</p>
+            </article>
+            <article>
+              <h3>Interpretive Pressure</h3>
+              <p>Select verses that create real questions: contradiction, repetition, moral tension, or theological difficulty.</p>
+            </article>
+            <article>
+              <h3>Book Architecture</h3>
+              <p>Keep the chapter method stable while allowing each parashah's strongest material to set the emphasis.</p>
+            </article>
+          </section>
+        </div>
+
+        <article id="chapter" class="chapter" hidden></article>
+      </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>
+
