@@ -2,6 +2,12 @@
 
 This register tracks the source baseline for each pilot chapter. It is not a replacement for checking the chapter footnotes.
 
+## Project Source Position
+
+Most source links currently point to Sefaria. The site is an independent curation and study-companion project: it selects and organizes source clusters according to the stated methodology, while sending readers back to primary and classical texts whenever possible.
+
+Non-Sefaria sources are used when they are better suited for calendar data, artwork provenance, institutional metadata, or other external context.
+
 ## Devarim
 
 - Primary text: Deuteronomy 1:1-3:22.

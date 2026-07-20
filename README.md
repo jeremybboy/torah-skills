@@ -2,6 +2,12 @@
 
 GitHub Pages-ready preview for a Torah study companion built chapter by chapter.
 
+## Editorial Position
+
+This is an independent curation and study-companion project. Most source links currently point to Sefaria, and chapter drafts should be understood as curated learning pathways shaped by the project methodology, not as a substitute for the original source texts.
+
+The editorial standard is: source-first, methodology-driven, and human-reviewed before publication.
+
 ## Structure
 
 - `index.html` - static reader for the published site.
@@ -31,3 +37,12 @@ Create a new GitHub repository from the contents of this folder. In repository s
 
 Use pull requests for chapter changes. Do not treat AI-generated drafts as final until a human review confirms verse selection, source quality, and commentary accuracy.
 
+## Validation
+
+Run this before opening or merging a pull request:
+
+```bash
+python3 scripts/validate_site.py
+```
+
+GitHub Actions also runs the same validation on pull requests and pushes to `main`.

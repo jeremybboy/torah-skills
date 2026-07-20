@@ -29,3 +29,8 @@ The five key verses and five sugyot should not be chosen because they are merely
 
 The chapter structure is fixed. The emphasis is not fixed. Each parashah should be treated with the same method, but not forced into the same thematic shape.
 
+## Source Curation Rule
+
+Sefaria is currently the primary linked source library for Tanach, Chazal, Rishonim, and halachic references. The project should describe itself as a curated study companion using source references, not as an original source edition and not as affiliated with Sefaria.
+
+When a chapter uses sources outside Sefaria, such as Hebcal, Wikimedia Commons, museum records, or publisher pages, those sources should be identified clearly in the source baseline.
