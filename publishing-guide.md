@@ -29,8 +29,9 @@ Recommended review labels:
 ## Chapter Workflow
 
 1. Draft chapter in `chapters/<parashah>.md`.
-2. Check the five key verses against `methodology/selection-criteria.md`.
-3. Check source claims against `sources/source-register.md`.
-4. Review with `reviews/chapter-review-checklist.md`.
-5. Merge only after source and selection review.
-
+2. Add the chapter to `chapters/index.json`.
+3. Check the five key verses against `methodology/selection-criteria.md`.
+4. Check source claims against `sources/source-register.md`.
+5. Run `python3 scripts/validate_site.py`.
+6. Review with `reviews/chapter-review-checklist.md`.
+7. Merge only after source and selection review.

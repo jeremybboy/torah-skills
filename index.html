@@ -21,9 +21,8 @@
       <aside class="sidebar" aria-label="Chapter navigation">
         <div class="sidebar-section">
           <h2>Chapters</h2>
-          <nav class="chapter-nav">
-            <a href="#devarim" data-chapter="devarim">Devarim</a>
-            <a href="#vaetchanan" data-chapter="vaetchanan">Vaetchanan</a>
+          <nav class="chapter-nav" id="chapter-nav">
+            <p class="nav-loading">Loading chapters...</p>
           </nav>
         </div>
         <div class="sidebar-section">
@@ -39,7 +38,7 @@
         <div id="home" class="home-view">
           <section class="intro-band">
             <h2>Current Pilots</h2>
-            <p>Two chapters are loaded for comparison: Devarim and Vaetchanan. The editorial question is whether the method finds the material that serious study already treats as central.</p>
+            <p>Chapter metadata is loaded from <code>chapters/index.json</code>, so adding a new parashah should not require editing the reader code. The editorial question is whether the method finds the material that serious study already treats as central.</p>
           </section>
 
           <section class="source-note" aria-label="Source and curation note">

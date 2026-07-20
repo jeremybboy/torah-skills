@@ -143,6 +143,12 @@ h4 {
   font-weight: 700;
 }
 
+.nav-loading {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .reader {
   min-width: 0;
 }

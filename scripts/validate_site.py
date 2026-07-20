@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import re
 import sys
+import json
 from pathlib import Path
 
 
@@ -11,6 +12,7 @@ REQUIRED_FILES = [
     "index.html",
     "assets/site.css",
     "assets/site.js",
+    "chapters/index.json",
     "chapters/devarim.md",
     "chapters/vaetchanan.md",
     "methodology/selection-criteria.md",
@@ -48,18 +50,56 @@ def check_required_files() -> None:
             fail(f"missing required file: {rel}")
 
 
+def load_chapter_index() -> list[dict[str, str]]:
+    try:
+        chapters = json.loads(read(ROOT / "chapters/index.json"))
+    except json.JSONDecodeError as exc:
+        fail(f"chapters/index.json is not valid JSON: {exc}")
+
+    if not isinstance(chapters, list) or not chapters:
+        fail("chapters/index.json must contain a non-empty list")
+
+    slugs: set[str] = set()
+    for index, chapter in enumerate(chapters):
+        if not isinstance(chapter, dict):
+            fail(f"chapters/index.json entry {index} must be an object")
+        for key in ("slug", "title", "path"):
+            if not isinstance(chapter.get(key), str) or not chapter[key].strip():
+                fail(f"chapters/index.json entry {index} missing string field: {key}")
+        if chapter["slug"] in slugs:
+            fail(f"chapters/index.json has duplicate slug: {chapter['slug']}")
+        slugs.add(chapter["slug"])
+        if not re.fullmatch(r"[a-z0-9-]+", chapter["slug"]):
+            fail(f"invalid chapter slug: {chapter['slug']}")
+        if not chapter["path"].startswith("chapters/") or not chapter["path"].endswith(".md"):
+            fail(f"invalid chapter path for {chapter['slug']}: {chapter['path']}")
+        if not (ROOT / chapter["path"]).is_file():
+            fail(f"chapter metadata points to missing file: {chapter['path']}")
+
+    return chapters
+
+
 def check_chapter_structure() -> None:
-    for chapter in sorted((ROOT / "chapters").glob("*.md")):
-        text = read(chapter)
+    chapters = load_chapter_index()
+    indexed_paths = {ROOT / chapter["path"] for chapter in chapters}
+    all_chapter_paths = set((ROOT / "chapters").glob("*.md"))
+    missing_from_index = sorted(all_chapter_paths - indexed_paths)
+    if missing_from_index:
+        rels = ", ".join(str(path.relative_to(ROOT)) for path in missing_from_index)
+        fail(f"chapter files missing from chapters/index.json: {rels}")
+
+    for chapter in chapters:
+        chapter_path = ROOT / chapter["path"]
+        text = read(chapter_path)
         for section in REQUIRED_SECTIONS:
             if section not in text:
-                fail(f"{chapter.relative_to(ROOT)} missing section: {section}")
+                fail(f"{chapter_path.relative_to(ROOT)} missing section: {section}")
         if len(re.findall(r"^### Sugya ", text, flags=re.MULTILINE)) != 5:
-            fail(f"{chapter.relative_to(ROOT)} must contain exactly five sugyot")
+            fail(f"{chapter_path.relative_to(ROOT)} must contain exactly five sugyot")
         if len(re.findall(r"^### Verse ", text, flags=re.MULTILINE)) != 5:
-            fail(f"{chapter.relative_to(ROOT)} must contain exactly five key verses")
+            fail(f"{chapter_path.relative_to(ROOT)} must contain exactly five key verses")
         if re.search(r"\b(TODO|TBD|FIXME)\b", text):
-            fail(f"{chapter.relative_to(ROOT)} contains TODO/TBD/FIXME marker")
+            fail(f"{chapter_path.relative_to(ROOT)} contains TODO/TBD/FIXME marker")
 
 
 def local_asset_from_url(url: str, base_dir: Path) -> Path | None:
@@ -79,6 +119,7 @@ def check_local_links() -> None:
     files = list((ROOT / "chapters").glob("*.md")) + [
         ROOT / "index.html",
         ROOT / "assets/site.css",
+        ROOT / "chapters/index.json",
     ]
 
     for path in files:

@@ -12,7 +12,7 @@ The editorial standard is: source-first, methodology-driven, and human-reviewed 
 
 - `index.html` - static reader for the published site.
 - `assets/` - CSS, JavaScript, and image assets.
-- `chapters/` - Markdown chapter drafts.
+- `chapters/` - Markdown chapter drafts plus `index.json` chapter metadata.
 - `methodology/` - editorial rules, chapter template, and selection rubric.
 - `sources/` - source register and verification notes.
 - `reviews/` - chapter review checklist.
@@ -46,3 +46,11 @@ python3 scripts/validate_site.py
 ```
 
 GitHub Actions also runs the same validation on pull requests and pushes to `main`.
+
+## Add A Chapter
+
+1. Add the chapter Markdown file under `chapters/`.
+2. Add one metadata entry to `chapters/index.json`.
+3. Run `python3 scripts/validate_site.py`.
+
+Do not edit `index.html` or `assets/site.js` just to add a chapter.
