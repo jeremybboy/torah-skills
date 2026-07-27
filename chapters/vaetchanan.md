@@ -1,4 +1,4 @@
-# Torah Study Companion Pilot
+# Torah Skills Pilot
 
 ## Parashat Vaetchanan
 

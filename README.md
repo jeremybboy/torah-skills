@@ -1,10 +1,16 @@
-# Torah Study Companion
+# Torah Skills
 
-GitHub Pages-ready preview for a Torah study companion built chapter by chapter.
+An open-source, source-first methodology for creating Torah study material with AI agents.
+The included GitHub Pages web app is a reference implementation: it presents analyzed
+parashot as narrative reading chapters, while the methodology can also be adapted into
+lessons, videos, image concepts, reflections, and other use cases.
 
 ## Editorial Position
 
-This is an independent curation and study-companion project. Most source links currently point to Sefaria, and chapter drafts should be understood as curated learning pathways shaped by the project methodology, not as a substitute for the original source texts.
+This is an independent curation project. Most source links currently point to Sefaria,
+and chapter drafts should be understood as curated learning pathways shaped by the
+project methodology, not as a substitute for the original source texts or an affiliated
+Sefaria edition.
 
 The editorial standard is: source-first, methodology-driven, and human-reviewed before publication.
 
@@ -13,7 +19,7 @@ The editorial standard is: source-first, methodology-driven, and human-reviewed 
 - `index.html` - static reader for the published site.
 - `assets/` - CSS, JavaScript, and image assets.
 - `chapters/` - Markdown chapter drafts plus `index.json` chapter metadata.
-- `methodology/` - editorial rules, chapter template, and selection rubric.
+- `methodology/` - reusable editorial rules, chapter template, and selection rubric.
 - `sources/` - source register and verification notes.
 - `reviews/` - chapter review checklist.
 
