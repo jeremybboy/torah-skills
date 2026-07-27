@@ -130,7 +130,7 @@ async function loadChapter(slug) {
     if (!response.ok) throw new Error(`Could not load ${chapter.path}`);
     const markdown = await response.text();
     chapterEl.innerHTML = markdownToHtml(markdown);
-    document.title = `${chapter.title} | Torah Study Companion`;
+    document.title = `${chapter.title} | Torah Skills`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   } catch (error) {
     chapterEl.innerHTML = `<p class="load-error">${escapeHtml(error.message)}. If you opened this from the filesystem, run a local web server or publish through GitHub Pages.</p>`;
