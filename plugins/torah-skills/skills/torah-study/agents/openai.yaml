@@ -1,0 +1,4 @@
+interface:
+  display_name: "Torah Study"
+  short_description: "Source-first parashah study method"
+  default_prompt: "Use $torah-study to draft a source-first parashah study chapter."
