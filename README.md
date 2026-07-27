@@ -20,8 +20,22 @@ The editorial standard is: source-first, methodology-driven, and human-reviewed 
 - `assets/` - CSS, JavaScript, and image assets.
 - `chapters/` - Markdown chapter drafts plus `index.json` chapter metadata.
 - `methodology/` - reusable editorial rules, chapter template, and selection rubric.
+- `plugins/torah-skills/` - installable Codex plugin containing the reusable skill.
 - `sources/` - source register and verification notes.
 - `reviews/` - chapter review checklist.
+
+## Torah Skills Plugin
+
+The website is one consumer of the methodology. The reusable skill lives at `plugins/torah-skills/skills/torah-study/` and defines the source-first workflow for chapters, lessons, video scripts, image briefs, and review passes.
+
+Install it in Codex:
+
+```bash
+codex plugin marketplace add jeremybboy/torah-skills --ref main
+codex plugin add torah-skills@torah-skills
+```
+
+Start a new Codex task after installation so the skill is discovered.
 
 ## Local Preview
 

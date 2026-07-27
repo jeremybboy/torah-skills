@@ -1,0 +1,34 @@
+{
+  "name": "torah-skills",
+  "version": "0.1.0",
+  "description": "Reusable Torah study skills for source-first parashah analysis and curated Jewish learning artifacts.",
+  "author": {
+    "name": "Jeremy"
+  },
+  "homepage": "https://jeremybboy.github.io/torah-skills/",
+  "repository": "https://github.com/jeremybboy/torah-skills",
+  "keywords": [
+    "torah",
+    "parashah",
+    "sefaria",
+    "study",
+    "jewish-learning"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Torah Skills",
+    "shortDescription": "Source-first Torah study workflows.",
+    "longDescription": "Torah Skills packages a reusable methodology for producing curated Torah study outputs from primary and classical sources. The website is one consumer of the skill; the methodology can also guide essays, lessons, scripts, image briefs, and reflective study artifacts.",
+    "developerName": "Jeremy",
+    "category": "Education",
+    "capabilities": [
+      "Research",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Torah Skills to draft this week's parashah study.",
+      "Use Torah Skills to adapt a parashah into a lesson.",
+      "Use Torah Skills to review a chapter for source quality."
+    ]
+  }
+}
