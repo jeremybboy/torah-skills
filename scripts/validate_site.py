@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "index.html",
+    "llms.txt",
     "assets/site.css",
     "assets/site.js",
     "chapters/index.json",
@@ -147,11 +148,33 @@ def check_source_position() -> None:
             fail(f"{label} must state the Sefaria/source curation position")
 
 
+def check_llms_txt() -> None:
+    text = read(ROOT / "llms.txt")
+    if not text.startswith("# Torah Skills\n"):
+        fail("llms.txt must start with the project H1")
+    if "\n> " not in text:
+        fail("llms.txt must include a blockquote summary")
+
+    required_urls = [
+        "https://jeremybboy.github.io/torah-skills/",
+        "https://jeremybboy.github.io/torah-skills/plugins/torah-skills/skills/torah-study/SKILL.md",
+        "https://jeremybboy.github.io/torah-skills/methodology/chapter-template.md",
+        "https://jeremybboy.github.io/torah-skills/methodology/selection-criteria.md",
+        "https://jeremybboy.github.io/torah-skills/sources/source-register.md",
+        "https://jeremybboy.github.io/torah-skills/chapters/devarim.md",
+        "https://jeremybboy.github.io/torah-skills/chapters/vaetchanan.md",
+    ]
+    for url in required_urls:
+        if url not in text:
+            fail(f"llms.txt missing curated URL: {url}")
+
+
 def main() -> None:
     check_required_files()
     check_chapter_structure()
     check_local_links()
     check_source_position()
+    check_llms_txt()
     print("Validation passed.")
 
 

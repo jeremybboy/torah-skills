@@ -1,0 +1,25 @@
+# Torah Skills
+
+> Torah Skills is an independent, source-first methodology for creating Torah study material with AI agents. The web reader is a reference implementation; the same method can support lessons, scripts, image briefs, and reflective study.
+
+Most source links point to Sefaria. This project curates learning pathways and is not affiliated with Sefaria or a replacement for primary texts. Treat generated material as draft until a human verifies the source chain.
+
+## Start Here
+
+- [Web Reader](https://jeremybboy.github.io/torah-skills/): Human-readable visualization of analyzed parashot.
+- [Torah Study Skill](https://jeremybboy.github.io/torah-skills/plugins/torah-skills/skills/torah-study/SKILL.md): Agent workflow, source policy, and validation rules.
+
+## Methodology
+
+- [Chapter Template](https://jeremybboy.github.io/torah-skills/methodology/chapter-template.md): Required ten-step chapter structure.
+- [Selection Criteria](https://jeremybboy.github.io/torah-skills/methodology/selection-criteria.md): Rubric for choosing principal sugyot and key verses.
+- [Source Register](https://jeremybboy.github.io/torah-skills/sources/source-register.md): Source roles, verification status, and provenance boundaries.
+
+## Parashah Chapters
+
+- [Devarim](https://jeremybboy.github.io/torah-skills/chapters/devarim.md): Source-first pilot chapter for Deuteronomy 1:1-3:22.
+- [Vaetchanan](https://jeremybboy.github.io/torah-skills/chapters/vaetchanan.md): Source-first pilot chapter for Deuteronomy 3:23-7:11.
+
+## Optional
+
+- [GitHub Repository](https://github.com/jeremybboy/torah-skills): Source, plugin package, contribution workflow, and validation.
