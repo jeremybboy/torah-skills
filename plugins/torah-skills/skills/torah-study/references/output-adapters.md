@@ -22,6 +22,23 @@ Convert the 10-step framework into:
 6. Application or reflection
 7. Review and source baseline
 
+## Interactive Chavruta or Weekly Study Mode
+
+Preserve the 10-step method, but teach one major step at a time and one sugya at a time. For each unit:
+
+1. Orient the learner briefly.
+2. Present the controlling source and its category.
+3. Ask the learner to notice or formulate the kushya before supplying responses.
+4. Work through classical responses and implications interactively.
+5. Pause for the learner's question, objection, or reflection.
+6. State the exact point at which the study will resume.
+
+Follow productive tangents when they deepen the source and answer them fully. After the tangent, explicitly return to the saved step and sugya; do not dump the whole chapter unless the learner explicitly requests it.
+
+## Long-Form Audio Shiur or Voice Study Mode
+
+Build a slow, conversational source journey: read or identify the exact passage, explain its context, state the question, develop classical responses, draw out halachic or philosophical implications when supported, and pause before continuing. Develop the five principal sugyot rather than listing them, with no pressure to keep the lesson short. Use natural transitions instead of repeatedly announcing step numbers, identify quoted passages clearly for listeners, and pause after substantial units so the learner can ask a question or say “continue.” Accuracy and source distinctions remain mandatory even when the delivery sounds informal.
+
 ## Video Script
 
 Convert the chapter into:
