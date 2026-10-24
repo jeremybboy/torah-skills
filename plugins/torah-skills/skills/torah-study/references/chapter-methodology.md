@@ -4,12 +4,20 @@ Use this reference for full parashah chapters and for any artifact that needs th
 
 ## Contents
 
+- Optional Orientation Prelude (Step 0)
 - Required 10-Step Framework
 - Section Requirements
+- Repetition and Comparison Rule
 - Selection Rubric
 - Editorial Rules
 - Review Checklist
 - Source Baseline
+
+## Optional Orientation Prelude (Step 0)
+
+Use a short orientation prelude before Step 1 when the learner needs context. It may identify the biblical book and passage, the larger narrative, key people and relationships, relevant geography, genealogy, or history, festival or special-reading context, and a familiar point of entry from Jewish life. Do not force a contemporary hook when it does not clarify the text.
+
+Step 0 is optional. It does not replace, renumber, or dilute the required 10-step framework.
 
 ## Required 10-Step Framework
 
@@ -30,26 +38,27 @@ Every parashah chapter follows this order:
 
 ### 1. Opening Reflection
 
-Start with orientation before interpretation. Include a framing question, several reflection prompts, and a central theme.
+Open the study rather than front-loading conclusions. Include a framing question, several reflection prompts, and a central theme. If no Step 0 is used, provide the minimum orientation needed here.
 
 ### 2. Narrative Overview
 
-Identify main characters, historical setting, chronological flow, geographic context, and a one-sentence summary.
+Identify main characters and relationships, historical setting, chronological flow, geographic context, and a one-sentence summary. Explain what immediately precedes the parashah and how this unit advances the larger biblical narrative. When the Torah repeats or retells an earlier account, identify the earlier passage, compare the accounts, and explain why the differences matter; this is especially important in Deuteronomy.
 
 ### 3. Five Principal Sugyot
 
-Each sugya should include:
+Select each sugya because the text or its reception creates a genuine interpretive, legal, moral, theological, or literary tension. Do not begin with a theme and bolt sources onto it afterward.
 
-- Torah source
-- Primary classical source, when available
-- Additional classical sources
-- Context
-- Kushya: the interpretive or moral problem
-- Terutz: how classical sources develop or resolve it
-- Halachic implications, if relevant
-- Philosophical implications
-- Personal application
-- Core takeaway
+Develop each sugya through this pattern:
+
+1. Source: quote or identify the controlling Torah passage and relevant primary classical source.
+2. Category: label each contribution as Torah/Tanakh, Mishnah, Gemara/Talmud, Midrash, Rishonim, Halachah, Kabbalah, Chassidut, or modern application.
+3. Context: locate the passage in its narrative, legal, historical, and literary setting.
+4. Kushya: state the interpretive, legal, moral, theological, or literary problem precisely.
+5. Classical responses and terutz: present meaningful approaches, including disagreement or unresolved tension rather than manufacturing consensus.
+6. Halachic implications: include them when the sources support a legal or practical development.
+7. Philosophical implications: explain what the dispute or resolution changes in the learner's understanding.
+8. Personal implications and application: explain the human stakes, then derive a proportionate application from the text and source chain.
+9. Core idea: end with the sugya's defensible central insight.
 
 ### 4. Five Key Verses
 
@@ -86,6 +95,17 @@ Choose one serious analogy, such as systems architecture, organizational learnin
 
 Identify the parashah's place in the annual Torah cycle, current or target-year timing, Israel vs. Diaspora differences when relevant, double-parashah considerations, holidays or fasts, haftarah context, and transition into the following parashah.
 
+## Repetition and Comparison Rule
+
+Treat meaningful repetition as intentional literary or legal design, not filler. Whenever a law, narrative, phrase, command, or memory repeats, ask:
+
+1. What repeats?
+2. What differs in wording, sequence, speaker, audience, setting, or legal effect?
+3. Why does the difference matter in context?
+4. What deeper literary, legal, theological, or ethical layer does the comparison reveal?
+
+Apply this rule only where the comparison is textually significant. Cite both passages and distinguish observation from interpretation.
+
 ## Selection Rubric
 
 Choose the five sugyot and five key verses by ranked learning value, not by whatever is merely interesting.
@@ -101,8 +121,11 @@ Choose the five sugyot and five key verses by ranked learning value, not by what
 ## Editorial Rules
 
 - Start with orientation before interpretation.
-- Identify source categories clearly.
+- Give beginners proportionate context without turning every section into an introduction.
+- Define unfamiliar people, places, institutions, and source categories on first use.
+- Identify source categories clearly: Torah/Tanakh, Mishnah, Gemara/Talmud, Midrash, Rishonim, Halachah, Kabbalah, Chassidut, and modern application.
 - Separate peshat from midrash, halachah, mysticism, and personal application.
+- Use repetition and comparison where the text makes them significant.
 - Use direct quotations sparingly.
 - Do not invent certainty where sources disagree.
 - Do not call AI output final until human review confirms verse selection, source quality, and commentary accuracy.
@@ -114,6 +137,9 @@ Choose the five sugyot and five key verses by ranked learning value, not by what
 - Five sugyot are present.
 - Five key verses are present.
 - Selection criteria are stated or clearly implied.
+- Each sugya begins from a genuine tension and follows the source-to-core-idea pattern.
+- Significant repetitions or retellings are compared rather than merely noted.
+- Unfamiliar people, places, and source categories receive proportionate orientation.
 - Every major claim has a source anchor.
 - Source links point to the intended text.
 - Calendar and haftarah details are checked.
@@ -128,6 +154,6 @@ Each chapter should identify:
 
 1. Primary Torah verse or passage.
 2. Main classical sources.
-3. Whether each major claim is peshat, Midrash, Gemara, Rishonim, Halachah, philosophy, Kabbalah, Chassidut, or application.
+3. Whether each major claim is peshat, Torah/Tanakh comparison, Mishnah, Gemara/Talmud, Midrash, Rishonim, Halachah, philosophy, Kabbalah, Chassidut, or modern application.
 4. Any uncertainty or disputed interpretation.
 5. Whether a calendar claim was checked against a current calendar source.

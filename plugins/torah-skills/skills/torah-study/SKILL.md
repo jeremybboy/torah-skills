@@ -13,11 +13,11 @@ Before producing or substantially editing any Torah study artifact, read `refere
 
 ## Workflow
 
-1. Identify the target parashah, passage, date, audience, and output format.
+1. Identify the target parashah, passage, date, audience, and output format; give the learner proportionate orientation before analysis.
 2. If the request is date-relative, verify the parashah calendar before drafting.
 3. Anchor the work in primary text first, then classical sources, then later interpretation.
-4. Select five principal sugyot and five key verses using the ranked selection rubric.
-5. Keep source categories separate: peshat, Midrash, Gemara, Rishonim, Halachah, Kabbalah, Chassidut, and application.
+4. Select five principal sugyot from genuine tensions and five key verses using the ranked selection rubric.
+5. Keep source categories separate: Torah/Tanakh, Mishnah, Gemara/Talmud, Midrash, Rishonim, Halachah, Kabbalah, Chassidut, and modern application.
 6. Draft in the required structure for the chosen output.
 7. End with a source baseline and any uncertainty that needs human review.
 
@@ -34,6 +34,8 @@ Before calling content ready, check:
 - The artifact follows the requested structure.
 - Major claims have source anchors.
 - The five sugyot and five key verses are defensible under the selection rubric.
+- Each sugya begins from a genuine tension and develops through the required source-to-core-idea pattern.
+- Significant repetitions and retellings are compared when relevant.
 - Calendar claims were checked when time-sensitive.
 - Peshat, Midrash, Halachah, Kabbalah, Chassidut, and personal application are not blurred.
 - AI-generated material is marked as draft until human review confirms the source chain.
