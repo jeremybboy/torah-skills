@@ -1,0 +1,131 @@
+{
+  "status": "editorial-test",
+  "curatedAt": "2026-10-24",
+  "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
+  "collections": [
+    {
+      "slug": "lech-lecha",
+      "title": "Lech-Lecha",
+      "compareWith": "noach",
+      "summary": "Three French and three English perspectives spanning overview, application, philosophy, and later mystical interpretation.",
+      "videos": [
+        {
+          "youtubeId": "o9U0mdJSnI4",
+          "title": "La Paracha Le'H Le'Ha avec le Rav Oury Cherki",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble",
+          "relation": "Présentation concise de la paracha par le Rav Oury Cherki, issue de la série recommandée par Jeremy."
+        },
+        {
+          "youtubeId": "RY16dUgaRX8",
+          "title": "Résumé de la PARACHA LEKH LEKHA en IA",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel",
+          "relation": "Résumé narratif accessible; les images générées par IA sont illustratives et ne remplacent pas l'étude du texte."
+        },
+        {
+          "youtubeId": "nfdxMJvqZaI",
+          "title": "Rabbi Moshé PINTO - Un monde meilleur qu’à ton arrivée",
+          "channel": "HEVRATPINTO",
+          "channelUrl": "https://www.youtube.com/@HEVRATPINTO",
+          "language": "fr",
+          "format": "Compagnon thématique",
+          "relation": "Ressource non spécifique à Lech-Lecha, retenue pour prolonger le thème: recevoir une bénédiction oblige à améliorer le monde."
+        },
+        {
+          "youtubeId": "8Dk0FpWn9j0",
+          "title": "Get Going – Parashat Lech Lecha (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Current weekly teaching",
+          "relation": "A current Rabbi Dovid Kaplan teaching centered on movement and response to the call of Lech-Lecha."
+        },
+        {
+          "youtubeId": "JfbgYj3e7Ow",
+          "title": "Covenant & Conversation | Lech Lecha | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive",
+          "relation": "An archival Covenant & Conversation perspective for philosophical comparison with the chapter's covenant theme."
+        },
+        {
+          "youtubeId": "ixuN5Pk7XuA",
+          "title": "Parshat Lech Lecha: an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic interpretation",
+          "relation": "A current long-form teaching explicitly tagged as later mystical interpretation, not peshat."
+        }
+      ]
+    },
+    {
+      "slug": "noach",
+      "title": "Noach",
+      "compareWith": "lech-lecha",
+      "summary": "A comparison set using the same bilingual balance and five recurring channels to test editorial consistency between weeks.",
+      "videos": [
+        {
+          "youtubeId": "yo5Iyogapco",
+          "title": "La Paracha Noa'h avec le Rav Oury Cherki",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble",
+          "relation": "Épisode Noa'h de la même série courte du Rav Oury Cherki, utile pour tester la continuité hebdomadaire."
+        },
+        {
+          "youtubeId": "uwjJM3MSPhw",
+          "title": "Torah-Box Kids n°1 - Noa'h - L'homme descend du singe ?!",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Format familial",
+          "relation": "Une porte d'entrée familiale centrée sur une question contemporaine; à lire comme pédagogie, pas comme commentaire classique."
+        },
+        {
+          "youtubeId": "zGIqXuSaRW4",
+          "title": "Shem, Ever, Térah : comprendre les racines du peuple juif - La Paracha de Noah",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Transition narrative",
+          "relation": "Le Rav Eytan Fiszon suit la transition de Noa'h vers Térah et prépare ainsi le passage à Lech-Lecha."
+        },
+        {
+          "youtubeId": "KvDvh5AyhAk",
+          "title": "Mission Impossible – Parashat Noach (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Current weekly teaching",
+          "relation": "The matching current Rabbi Dovid Kaplan entry makes the weekly-channel rule directly comparable with Lech-Lecha."
+        },
+        {
+          "youtubeId": "mSlTUqSQWFI",
+          "title": "Covenant & Conversation | Noach | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive",
+          "relation": "An archival philosophical treatment that keeps the Rabbi Sacks comparison stable across both parashot."
+        },
+        {
+          "youtubeId": "MFeipdLFowg",
+          "title": "Parshat Noah: an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic interpretation",
+          "relation": "The matching current long-form entry tests whether the channel provides a dependable weekly mystical layer."
+        }
+      ]
+    }
+  ]
+}
