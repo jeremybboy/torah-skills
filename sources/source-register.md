@@ -21,6 +21,13 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Calendar anchor: Shabbat Nachamu, after Tisha B'Av.
 - Core source clusters: Moshe's prayer, Sinai memory, bal tosif, Shabbat, Shema, love of God, right and good.
 
+## Lech-Lecha
+
+- Primary text: Genesis 12:1-17:27.
+- Calendar anchor: 13 Cheshvan 5787 / October 24, 2026, checked for Los Angeles against Hebcal.
+- Core source clusters: the call of Abram, famine and Egypt, the Covenant between the Pieces, Hagar and divine seeing, brit milah, Rashi, Ramban, Radak, Pirkei Avot 5:3, Nedarim 32a, Mishnah Nedarim 3:11, and Shabbat 132a.
+- Original work: *Beneath the Uncounted Stars* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
+
 ## Verification Standard
 
 Each chapter should identify:

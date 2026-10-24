@@ -10,5 +10,11 @@
     "title": "Vaetchanan",
     "path": "chapters/vaetchanan.md",
     "status": "pilot"
+  },
+  {
+    "slug": "lech-lecha",
+    "title": "Lech-Lecha",
+    "path": "chapters/lech-lecha.md",
+    "status": "review"
   }
 ]
