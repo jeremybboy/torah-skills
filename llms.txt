@@ -23,4 +23,6 @@ Most source links point to Sefaria. This project curates learning pathways and i
 
 ## Optional
 
+- [Media Collections](https://jeremybboy.github.io/torah-skills/media/collections.json): Reviewed bilingual video sets rendered by the in-page media explorer.
+- [Media Curation Rules](https://jeremybboy.github.io/torah-skills/media/README.md): Channel priorities, weekly refresh process, and editorial boundaries.
 - [GitHub Repository](https://github.com/jeremybboy/torah-skills): Source, plugin package, contribution workflow, and validation.

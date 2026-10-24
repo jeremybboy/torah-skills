@@ -35,3 +35,12 @@ Recommended review labels:
 5. Run `python3 scripts/validate_site.py`.
 6. Review with `reviews/chapter-review-checklist.md`.
 7. Merge only after source and selection review.
+
+## Weekly Media Workflow
+
+1. Follow `media/README.md` and propose six videos: three French and three English.
+2. Search approved channels first and compare the current parashah with the prior week's collection.
+3. Verify each exact YouTube ID, title, channel, and oEmbed response; do not depend on mutable or private playlists.
+4. Update `media/collections.json` in the same weekly chapter pull request.
+5. Recheck current uploads on Friday and revise the existing pull request when a stronger weekly teaching appears.
+6. Treat every video as a reviewed learning companion, not as evidence for the chapter's primary-source claims.

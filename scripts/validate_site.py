@@ -14,6 +14,8 @@ REQUIRED_FILES = [
     "assets/site.css",
     "assets/site.js",
     "chapters/index.json",
+    "media/collections.json",
+    "media/README.md",
     "chapters/devarim.md",
     "chapters/vaetchanan.md",
     "methodology/selection-criteria.md",
@@ -103,6 +105,75 @@ def check_chapter_structure() -> None:
             fail(f"{chapter_path.relative_to(ROOT)} contains TODO/TBD/FIXME marker")
 
 
+def check_media_collections() -> None:
+    try:
+        data = json.loads(read(ROOT / "media/collections.json"))
+    except json.JSONDecodeError as exc:
+        fail(f"media/collections.json is not valid JSON: {exc}")
+
+    collections = data.get("collections") if isinstance(data, dict) else None
+    if not isinstance(collections, list) or not collections:
+        fail("media/collections.json must contain a non-empty collections list")
+
+    collection_slugs: set[str] = set()
+    required_collections = {"lech-lecha", "noach"}
+    required_video_fields = {
+        "youtubeId",
+        "title",
+        "channel",
+        "channelUrl",
+        "language",
+        "format",
+        "relation",
+    }
+
+    for collection in collections:
+        if not isinstance(collection, dict):
+            fail("each media collection must be an object")
+        slug = collection.get("slug")
+        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9-]+", slug):
+            fail(f"invalid media collection slug: {slug}")
+        if slug in collection_slugs:
+            fail(f"duplicate media collection slug: {slug}")
+        collection_slugs.add(slug)
+        compare_with = collection.get("compareWith")
+        if not isinstance(compare_with, str) or not re.fullmatch(r"[a-z0-9-]+", compare_with):
+            fail(f"media collection {slug} must declare a valid compareWith slug")
+
+        videos = collection.get("videos")
+        if not isinstance(videos, list) or len(videos) != 6:
+            fail(f"media collection {slug} must contain exactly six videos")
+        languages = [video.get("language") for video in videos if isinstance(video, dict)]
+        if languages.count("fr") != 3 or languages.count("en") != 3:
+            fail(f"media collection {slug} must contain three French and three English videos")
+
+        video_ids: set[str] = set()
+        for index, video in enumerate(videos):
+            if not isinstance(video, dict):
+                fail(f"media collection {slug} video {index} must be an object")
+            for field in required_video_fields:
+                if not isinstance(video.get(field), str) or not video[field].strip():
+                    fail(f"media collection {slug} video {index} missing string field: {field}")
+            video_id = video["youtubeId"]
+            if not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
+                fail(f"media collection {slug} has invalid YouTube ID: {video_id}")
+            if video_id in video_ids:
+                fail(f"media collection {slug} has duplicate YouTube ID: {video_id}")
+            video_ids.add(video_id)
+            if not video["channelUrl"].startswith("https://www.youtube.com/"):
+                fail(f"media collection {slug} has invalid channel URL: {video['channelUrl']}")
+
+    missing = required_collections - collection_slugs
+    if missing:
+        fail(f"media collections missing comparison set: {', '.join(sorted(missing))}")
+    for collection in collections:
+        if collection["compareWith"] not in collection_slugs:
+            fail(
+                f"media collection {collection['slug']} compares with missing collection: "
+                f"{collection['compareWith']}"
+            )
+
+
 def local_asset_from_url(url: str, base_dir: Path) -> Path | None:
     if re.match(r"^[a-z]+://", url):
         return None
@@ -121,6 +192,7 @@ def check_local_links() -> None:
         ROOT / "index.html",
         ROOT / "assets/site.css",
         ROOT / "chapters/index.json",
+        ROOT / "media/collections.json",
     ]
 
     for path in files:
@@ -172,6 +244,7 @@ def check_llms_txt() -> None:
 def main() -> None:
     check_required_files()
     check_chapter_structure()
+    check_media_collections()
     check_local_links()
     check_source_position()
     check_llms_txt()
