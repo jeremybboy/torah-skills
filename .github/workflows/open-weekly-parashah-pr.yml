@@ -1,0 +1,49 @@
+name: Open Weekly Parashah PR
+
+on:
+  push:
+    branches:
+      - "automation/parashah-*"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-and-open:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the automation branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate chapter and site structure
+        run: python3 scripts/validate_site.py
+
+      - name: Open the review pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_BRANCH: ${{ github.ref_name }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          existing_pr="$(gh pr list --repo "$REPOSITORY" --head "$HEAD_BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [[ -n "$existing_pr" ]]; then
+            echo "Pull request #$existing_pr already tracks $HEAD_BRANCH."
+            exit 0
+          fi
+
+          parashah_slug="${HEAD_BRANCH#automation/parashah-}"
+          parashah_title="${parashah_slug//-/ }"
+          gh pr create \
+            --repo "$REPOSITORY" \
+            --base main \
+            --head "$HEAD_BRANCH" \
+            --title "Weekly parashah: $parashah_title" \
+            --body-file .github/weekly-parashah-pr.md \
+            --reviewer jeremybboy
