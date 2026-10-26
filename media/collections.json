@@ -1,6 +1,6 @@
 {
   "status": "editorial-test",
-  "curatedAt": "2026-10-24",
+  "curatedAt": "2026-10-26",
   "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
   "collections": [
     {
@@ -124,6 +124,68 @@
           "language": "en",
           "format": "Kabbalistic interpretation",
           "relation": "The matching current long-form entry tests whether the channel provides a dependable weekly mystical layer."
+        }
+      ]
+    },
+    {
+      "slug": "vayera",
+      "title": "Vayera",
+      "compareWith": "lech-lecha",
+      "summary": "Three French and three English perspectives spanning overview, family-friendly narrative, current weekly teaching, philosophy, and later mystical interpretation.",
+      "videos": [
+        {
+          "youtubeId": "8Xu7xiWst5M",
+          "title": "La Paracha Vayera avec le Rav Oury Cherki",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble",
+          "relation": "Présentation concise de la paracha par le Rav Oury Cherki, utile pour relier l'hospitalité d'Abraham et l'exigence de justice."
+        },
+        {
+          "youtubeId": "5QEJ8f2K7j8",
+          "title": "Résumé de la PARACHA VAYERA en IA - Avraham et ses invités, Destruction de Sodome,...",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel familial",
+          "relation": "Résumé narratif accessible de Vayera; les images générées par IA sont illustratives et ne remplacent pas l'étude du texte."
+        },
+        {
+          "youtubeId": "KFBOe_FinAk",
+          "title": "Parasha Vayéra",
+          "channel": "HEVRATPINTO",
+          "channelUrl": "https://www.youtube.com/@HEVRATPINTO",
+          "language": "fr",
+          "format": "Dvar Torah court",
+          "relation": "Une porte d'entrée thématique brève qui complète, sans répéter, la vue d'ensemble de la collection."
+        },
+        {
+          "youtubeId": "opcqC-YhV1I",
+          "title": "After the Laughter – Parshat Vayeira (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Current weekly teaching",
+          "relation": "A current Rabbi Dovid Kaplan teaching focused on laughter and Isaac, directly matching one of the chapter's principal source clusters."
+        },
+        {
+          "youtubeId": "kg-VOApRvbQ",
+          "title": "Covenant & Conversation | Vayera | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive",
+          "relation": "An archival philosophical perspective for comparison across hospitality, moral responsibility, and covenant."
+        },
+        {
+          "youtubeId": "W3LjwKpNXnY",
+          "title": "Parsha Vayeira |  an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic interpretation",
+          "relation": "A long-form later mystical layer, explicitly offered as Kabbalistic interpretation rather than peshat or source evidence."
         }
       ]
     }

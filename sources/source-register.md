@@ -28,6 +28,15 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Core source clusters: the call of Abram, famine and Egypt, the Covenant between the Pieces, Hagar and divine seeing, brit milah, Rashi, Ramban, Radak, Pirkei Avot 5:3, Nedarim 32a, Mishnah Nedarim 3:11, and Shabbat 132a.
 - Original work: *Beneath the Uncounted Stars* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
 
+## Vayera
+
+- Primary text: Genesis 18:1-22:24.
+- Calendar anchor: 20 Cheshvan 5787 / October 31, 2026, checked for Los Angeles against Hebcal; this is a single parashah with no festival displacement.
+- Haftarah traditions: Ashkenazi II Kings 4:1-37; Sephardi II Kings 4:1-23.
+- Core source clusters: Abraham's hospitality, justice and Sodom, Sarah's laughter and Isaac's birth, Hagar and Ishmael in the wilderness, the Akedah, Rashi, Ramban, Bava Metzia 86b-87a, Shabbat 127a, Sanhedrin 109a-b, Rosh Hashanah 16a-b, Mishneh Torah, Ezekiel 16:49, and II Kings 4.
+- Original work: *At the Entrance of the Tent* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
+- Review status: AI-assisted draft pending human verification of text, source framing, calendar details, and media selection.
+
 ## Verification Standard
 
 Each chapter should identify:
