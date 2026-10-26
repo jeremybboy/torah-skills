@@ -20,6 +20,7 @@ Most source links point to Sefaria. This project curates learning pathways and i
 - [Devarim](https://jeremybboy.github.io/torah-skills/chapters/devarim.md): Source-first pilot chapter for Deuteronomy 1:1-3:22.
 - [Vaetchanan](https://jeremybboy.github.io/torah-skills/chapters/vaetchanan.md): Source-first pilot chapter for Deuteronomy 3:23-7:11.
 - [Lech-Lecha](https://jeremybboy.github.io/torah-skills/chapters/lech-lecha.md): Weekly chapter for Genesis 12:1-17:27, including an original responsive piyyut.
+- [Vayera](https://jeremybboy.github.io/torah-skills/chapters/vayera.md): Weekly chapter for Genesis 18:1-22:24, including an original responsive piyyut.
 
 ## Optional
 

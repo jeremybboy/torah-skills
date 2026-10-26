@@ -16,5 +16,11 @@
     "title": "Lech-Lecha",
     "path": "chapters/lech-lecha.md",
     "status": "review"
+  },
+  {
+    "slug": "vayera",
+    "title": "Vayera",
+    "path": "chapters/vayera.md",
+    "status": "review"
   }
 ]
