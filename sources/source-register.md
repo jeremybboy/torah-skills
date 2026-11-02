@@ -37,6 +37,15 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Original work: *At the Entrance of the Tent* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
 - Review status: AI-assisted draft pending human verification of text, source framing, calendar details, and media selection.
 
+## Chayei Sara
+
+- Primary text: Genesis 23:1-25:18.
+- Calendar anchor: 27 Cheshvan 5787 / November 7, 2026, checked for Los Angeles against Hebcal; this is a single parashah with no festival displacement and is Shabbat Mevarchim for Kislev.
+- Haftarah: I Kings 1:1-31, linking Abraham's succession planning with David's contested succession.
+- Core source clusters: Sarah's burial and the purchase of Machpelah, the servant's bounded oath, Rebecca's kindness at the well, Rebecca's consent, Isaac's afternoon prayer and consolation, Rashi, Ramban, Kiddushin 2a and 41a, Taanit 4a, Berakhot 26b, Mishneh Torah, Zohar I 121a, and I Kings 1.
+- Original work: *At the Well of Tomorrow* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
+- Review status: AI-assisted draft pending human verification of Hebrew, translations, source framing, the Zohar passage, calendar details, and media selection.
+
 ## Verification Standard
 
 Each chapter should identify:
