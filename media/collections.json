@@ -1,6 +1,6 @@
 {
   "status": "editorial-test",
-  "curatedAt": "2026-10-26",
+  "curatedAt": "2026-11-02",
   "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
   "collections": [
     {
@@ -186,6 +186,68 @@
           "language": "en",
           "format": "Kabbalistic interpretation",
           "relation": "A long-form later mystical layer, explicitly offered as Kabbalistic interpretation rather than peshat or source evidence."
+        }
+      ]
+    },
+    {
+      "slug": "chayei-sara",
+      "title": "Chayei Sara",
+      "compareWith": "vayera",
+      "summary": "Three French and three English learning companions spanning concise overview, accessible narrative, current weekly teaching, succession, and later mystical interpretation.",
+      "videos": [
+        {
+          "youtubeId": "hZHb-C8Qez0",
+          "title": "La Paracha avec le Rav Oury Cherki : Haye Sarah",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble",
+          "relation": "Présentation concise de la paracha qui conserve la continuité éditoriale avec les semaines précédentes et situe la mort de Sarah, le mariage de Rivka et la transmission de l'alliance."
+        },
+        {
+          "youtubeId": "Cz0j14CXbM8",
+          "title": "Résumé de la PARACHA 'HAYE SARAH en IA - Décès de Sarah à 'Hévron, Mariage d'Its'hak & Rivka,...",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel familial",
+          "relation": "Résumé narratif accessible des deux grands mouvements du chapitre; les images générées par IA sont illustratives et ne remplacent ni le texte ni les sources classiques."
+        },
+        {
+          "youtubeId": "2MxiDsA_oIg",
+          "title": "Rabbi Moshé Pinto - Hayé Sarah 2023",
+          "channel": "HEVRATPINTO",
+          "channelUrl": "https://www.youtube.com/@HEVRATPINTO",
+          "language": "fr",
+          "format": "Dvar Torah thématique",
+          "relation": "Enseignement francophone explicitement consacré à Hayé Sarah, retenu pour diversifier le ton au-delà de la vue d'ensemble et du résumé visuel."
+        },
+        {
+          "youtubeId": "n7Td3eSImTE",
+          "title": "The Life of Sarah – Parashat Chayei Sarah (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Current weekly teaching",
+          "relation": "The current Rabbi Dovid Kaplan teaching, published on November 2, 2026, directly matches the chapter's question of how Sarah's life continues through covenantal succession."
+        },
+        {
+          "youtubeId": "kmwOf88RCIs",
+          "title": "Covenant & Conversation | Chayei Sarah | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive",
+          "relation": "An archival philosophical perspective that keeps the Rabbi Sacks comparison stable while deepening the chapter's themes of grief, future, and responsibility."
+        },
+        {
+          "youtubeId": "2zYHRovFIOo",
+          "title": "Parsha Chayei Sarah, an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic interpretation",
+          "relation": "A long-form later mystical and Chassidic layer, explicitly labeled as interpretation rather than peshat or evidence for the chapter's classical-source claims."
         }
       ]
     }
