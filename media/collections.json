@@ -1,7 +1,7 @@
 {
   "status": "editorial-test",
-  "curatedAt": "2026-11-02",
-  "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
+  "curatedAt": "2026-11-06",
+  "curationNote": "Friday refresh: replaced the year-old Torah-Box and Rabbi Yosef Shusterman entries with exact 2026 weekly uploads because they are more current and at least as relevant. Six-video bilingual test set; every item requires human review, and inclusion does not imply endorsement of every claim in the video.",
   "collections": [
     {
       "slug": "lech-lecha",
@@ -205,13 +205,13 @@
           "relation": "Présentation concise de la paracha qui conserve la continuité éditoriale avec les semaines précédentes et situe la mort de Sarah, le mariage de Rivka et la transmission de l'alliance."
         },
         {
-          "youtubeId": "Cz0j14CXbM8",
-          "title": "Résumé de la PARACHA 'HAYE SARAH en IA - Décès de Sarah à 'Hévron, Mariage d'Its'hak & Rivka,...",
-          "channel": "Torah-Box",
-          "channelUrl": "https://www.youtube.com/@torahbox",
+          "youtubeId": "WSGqcvDpD4I",
+          "title": "'Hayé Sarah : Juger sans parti pris",
+          "channel": "Torah-Box 2",
+          "channelUrl": "https://www.youtube.com/@TorahBox2",
           "language": "fr",
-          "format": "Résumé visuel familial",
-          "relation": "Résumé narratif accessible des deux grands mouvements du chapitre; les images générées par IA sont illustratives et ne remplacent ni le texte ni les sources classiques."
+          "format": "Dvar Torah actuel",
+          "relation": "Enseignement francophone publié pendant la semaine de Hayé Sarah 5787 sur le jugement sans parti pris; il remplace le résumé IA vieux d'un an parce qu'il est actuel et propose une étude thématique plus ciblée."
         },
         {
           "youtubeId": "2MxiDsA_oIg",
@@ -241,13 +241,13 @@
           "relation": "An archival philosophical perspective that keeps the Rabbi Sacks comparison stable while deepening the chapter's themes of grief, future, and responsibility."
         },
         {
-          "youtubeId": "2zYHRovFIOo",
-          "title": "Parsha Chayei Sarah, an In Depth Analysis with Kabbalistic Insights",
+          "youtubeId": "K1gdJVc7TTs",
+          "title": "Parshat Chayei Sarah: an In Depth Analysis with Kabbalistic Insights",
           "channel": "Rabbi Yosef Shusterman",
           "channelUrl": "https://www.youtube.com/@bhchabad",
           "language": "en",
-          "format": "Kabbalistic interpretation",
-          "relation": "A long-form later mystical and Chassidic layer, explicitly labeled as interpretation rather than peshat or evidence for the chapter's classical-source claims."
+          "format": "Current Kabbalistic interpretation",
+          "relation": "A current 2026 long-form mystical and Chassidic teaching; it replaces the year-old edition because it is the exact weekly upload, while remaining interpretation rather than peshat or source evidence."
         }
       ]
     }
