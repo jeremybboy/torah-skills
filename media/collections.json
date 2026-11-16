@@ -1,8 +1,70 @@
 {
   "status": "editorial-test",
-  "curatedAt": "2026-11-02",
+  "curatedAt": "2026-11-16",
   "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
   "collections": [
+    {
+      "slug": "vayetzei",
+      "title": "Vayetzei",
+      "compareWith": "chayei-sara",
+      "summary": "Three French and three English companions, preserving all six recurring approved channels. Toldot has no collection on main, so comparison uses the latest available set. One current Kaplan upload; five explicitly archival selections to recheck Friday. IDs, titles, channels and oEmbed verified 2026-11-16. Languages supported by captions for the first four and publisher metadata for the last two; human listening review remains required.",
+      "videos": [
+        {
+          "youtubeId": "YhTOrEhSssM",
+          "title": "La Paracha Vayetse avec le Rav Oury Cherki.",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble — archive 2021",
+          "relation": "Exil, échelle et rencontre au puits : vue d'ensemble de la série récurrente du Rav Oury Cherki. Archive choisie pour sa pertinence exacte, aucun épisode actuel identifié lors de la recherche."
+        },
+        {
+          "youtubeId": "uxpr-2yxEqY",
+          "title": "Résumé de la PARACHA VAYÉTSÉ - L'échelle de Yaakov, Mariage avec Léa & Ra'hel, Lavan,...",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel familial — archive 2024",
+          "relation": "Orientation narrative avant l'étude des cinq sugyot. Illustrations IA expressément signalées par l'éditeur comme approximatives; archive exacte retenue en attendant une publication actuelle plus pertinente."
+        },
+        {
+          "youtubeId": "NXIx9JXusl4",
+          "title": "Apprécier l’ordinaire",
+          "channel": "HEVRATPINTO",
+          "channelUrl": "https://www.youtube.com/@HEVRATPINTO",
+          "language": "fr",
+          "format": "Réflexion thématique — archive 2020",
+          "relation": "L'éditeur identifie ce cours comme Parachat Vayetsé, 27 novembre 2020. Compagnon sur l'attention à l'ordinaire, mis en dialogue avec reconnaissance et gratitude; ce rapprochement est éditorial et ne vaut pas preuve classique."
+        },
+        {
+          "youtubeId": "REZdxnS2PXE",
+          "title": "Hashem the Matchmaker – Parashat Vayeitzei (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Current weekly teaching — November 16, 2026",
+          "relation": "This week's Rabbi Dovid Kaplan upload accompanies the chapter's marriage and providence questions; the relationship is an editorial entry point, not evidence for a source claim."
+        },
+        {
+          "youtubeId": "_PqEuegSpiA",
+          "title": "Covenant & Conversation | Vayetse | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive — 2010",
+          "relation": "The publisher links this episode to The Character of Jacob; retain the recurring philosophical archive for comparison with the chapter's integrity and responsibility themes."
+        },
+        {
+          "youtubeId": "5k8JxpZEOZo",
+          "title": "Parsha Vayetze, an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic and Chassidic interpretation — archive 2024",
+          "relation": "Long-form later interpretation from the recurring approved channel; no exact current Vayetzei upload was identified. Recheck Friday and keep this interpretive layer distinct from peshat and classical-source verification."
+        }
+      ]
+    },
     {
       "slug": "lech-lecha",
       "title": "Lech-Lecha",

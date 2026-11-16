@@ -46,6 +46,18 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Original work: *At the Well of Tomorrow* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
 - Review status: AI-assisted draft pending human verification of Hebrew, translations, source framing, the Zohar passage, calendar details, and media selection.
 
+## Vayetzei
+
+- Primary text: [Genesis 28:10-32:3](https://www.sefaria.org/Genesis.28.10-32.3).
+- Calendar: November 21, 2026 / 11 Kislev 5787, Los Angeles/Diaspora; single regular reading, checked November 16 against [Hebcal](https://www.hebcal.com/sedrot/vayetzei-20261121).
+- Haftarot: Ashkenazi Hosea 12:13-14:10; Sephardi Hosea 11:7-12:12; verify local custom and numbering.
+- Checked classical anchors: Rashi 28:11-12, 29:25 and 31:19; Ramban 28:12 and 29:31; Berakhot 7b and 26b; Megillah 13b; Mishneh Torah, Hiring 13:7. Categories and source disagreements are identified in the chapter.
+- Hebrew for the five verses was retrieved from Sefaria; transliterations and independent English renderings require human review. No unverified written Kabbalistic teaching is attributed.
+- Original work: *A Place Along the Road*, contemporary responsive English poem; not traditional liturgy.
+- Media: six approved-channel companions, 3 French/3 English; exact IDs, titles, channels and oEmbed responses verified November 16, 2026. Kaplan's current upload is dated November 16; five archive companions await the Friday refresh. Language evidence: French/English caption tracks for the first four; English titles, descriptions and publisher context for Sacks and Shusterman, pending human listening confirmation.
+- Comparison: no Toldot collection exists on main; keep that missing-week fact visible and compare channel continuity with Chayei Sara rather than inventing a prior set.
+- Review status: human-review draft; verify Hebrew, transliteration, interpretations, haftarah custom, poem and media. Videos are companions, not primary or classical evidence.
+
 ## Verification Standard
 
 Each chapter should identify:
