@@ -28,5 +28,11 @@
     "title": "Chayei Sara",
     "path": "chapters/chayei-sara.md",
     "status": "review"
+  },
+  {
+    "slug": "vayetzei",
+    "title": "Vayetzei",
+    "path": "chapters/vayetzei.md",
+    "status": "review"
   }
 ]

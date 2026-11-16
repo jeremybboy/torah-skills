@@ -23,6 +23,8 @@ Most source links point to Sefaria. This project curates learning pathways and i
 - [Vayera](https://jeremybboy.github.io/torah-skills/chapters/vayera.md): Weekly chapter for Genesis 18:1-22:24, including an original responsive piyyut.
 - [Chayei Sara](https://jeremybboy.github.io/torah-skills/chapters/chayei-sara.md): Weekly chapter for Genesis 23:1-25:18, including an original responsive piyyut.
 
+- [Vayetzei](https://jeremybboy.github.io/torah-skills/chapters/vayetzei.md): Human-review draft for Genesis 28:10-32:3 and November 21, 2026, with five sugyot, five verses, an original responsive poem, and bilingual learning companions.
+
 ## Optional
 
 - [Media Collections](https://jeremybboy.github.io/torah-skills/media/collections.json): Reviewed bilingual video sets rendered by the in-page media explorer.
