@@ -46,6 +46,15 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Original work: *At the Well of Tomorrow* is a contemporary responsive piyyut drafted for this chapter; it is not traditional liturgy.
 - Review status: AI-assisted draft pending human verification of Hebrew, translations, source framing, the Zohar passage, calendar details, and media selection.
 
+## Toldot
+
+- Primary text: [Genesis 25:19–28:9](https://www.sefaria.org/Genesis.25.19-28.9).
+- Calendar: November 14, 2026 / 4 Kislev 5787; single Los Angeles/Diaspora reading, confirmed by [Hebcal](https://www.hebcal.com/sedrot/toldot-20261114) and [Chabad of Bel Air](https://www.chabad.org/calendar/view/day.asp?mosadid=11&tdate=11%2F14%2F2026).
+- Haftarah: [Malachi 1:1–2:7](https://www.sefaria.org/Malachi.1.1-2.7); confirm local custom.
+- Classical anchors: Rashi on Genesis 25:21, 25:23, 25:31–32, 27:22 and 27:33; Ramban on Genesis 26:20; Yevamot 64a. Keep narrative, rabbinic interpretation, and editorial application distinct.
+- Media: six YouTube oEmbed responses checked November 20, 2026; 3 French/3 English by publisher context, pending human listening. The Kaplan selection is dated November 12 by Ohr Somayach.
+- Review status: retrospective human-review draft and audio pilot; verify Hebrew, renderings, narration, and spoken language. Companions are not source evidence.
+
 ## Vayetzei
 
 - Primary text: [Genesis 28:10-32:3](https://www.sefaria.org/Genesis.28.10-32.3).
@@ -55,7 +64,7 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Hebrew for the five verses was retrieved from Sefaria; transliterations and independent English renderings require human review. No unverified written Kabbalistic teaching is attributed.
 - Original work: *A Place Along the Road*, contemporary responsive English poem; not traditional liturgy.
 - Media: six approved-channel companions, 3 French/3 English; exact IDs, titles, channels and oEmbed responses verified November 16, 2026. Kaplan's current upload is dated November 16; five archive companions await the Friday refresh. Language evidence: French/English caption tracks for the first four; English titles, descriptions and publisher context for Sacks and Shusterman, pending human listening confirmation.
-- Comparison: no Toldot collection exists on main; keep that missing-week fact visible and compare channel continuity with Chayei Sara rather than inventing a prior set.
+- Comparison at original curation: Toldot was not yet available, so the Vayetzei collection uses Chayei Sara as its comparison.
 - Review status: human-review draft; verify Hebrew, transliteration, interpretations, haftarah custom, poem and media. Videos are companions, not primary or classical evidence.
 
 ## Verification Standard

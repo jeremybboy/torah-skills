@@ -30,6 +30,12 @@
     "status": "review"
   },
   {
+    "slug": "toldot",
+    "title": "Toldot",
+    "path": "chapters/toldot.md",
+    "status": "review"
+  },
+  {
     "slug": "vayetzei",
     "title": "Vayetzei",
     "path": "chapters/vayetzei.md",

@@ -312,6 +312,68 @@
           "relation": "A long-form later mystical and Chassidic layer, explicitly labeled as interpretation rather than peshat or evidence for the chapter's classical-source claims."
         }
       ]
+    },
+    {
+      "slug": "toldot",
+      "title": "Toldot",
+      "compareWith": "chayei-sara",
+      "summary": "Retrospective study set: three French and three English videos, retaining the same six approved channels as Chayei Sara. The Kaplan teaching is from the week of Toldot; the other selections contribute distinct formats. IDs, titles, publishers and oEmbed responses checked November 20; spoken languages are based on publisher context and remain subject to listening review.",
+      "videos": [
+        {
+          "youtubeId": "UAFSePWq2eU",
+          "title": "La Paracha Toldot avec le Rav Oury Cherki.",
+          "channel": "SHOFAR",
+          "channelUrl": "https://www.youtube.com/@SHOFAR_officiel",
+          "language": "fr",
+          "format": "Vue d'ensemble — archive",
+          "relation": "Vue d'ensemble sur les jumeaux, le droit d'aînesse et la ruse; accompagne les sugyot sur l'oracle et la bénédiction."
+        },
+        {
+          "youtubeId": "Cv90xWMyz74",
+          "title": "Résumé de la PARACHA TOLEDOT en IA - Rivka est stérile, Yaakov & Essav, Droit d'aînesse...",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel familial avec illustrations IA",
+          "relation": "Repères narratifs pour distinguer la naissance des jumeaux du récit du droit d'aînesse; les images ne constituent pas des sources."
+        },
+        {
+          "youtubeId": "rZSa9a-TQWA",
+          "title": "Rabbi Moshé PINTO - Toldot = Apprendre à aimer ! ! !",
+          "channel": "HEVRATPINTO",
+          "channelUrl": "https://www.youtube.com/@HEVRATPINTO",
+          "language": "fr",
+          "format": "Enseignement thématique",
+          "relation": "Compagnon sur l'amour à mettre en dialogue avec la réflexion parentale, sans en faire une preuve textuelle."
+        },
+        {
+          "youtubeId": "0RK3kAZ5cV0",
+          "title": "Torah Protected – Parashat Toldos (Rabbi Dovid Kaplan)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Weekly teaching — November 12, 2026",
+          "relation": "The week's Dovid Kaplan teaching offers a separate contemporary entry point into Toldot."
+        },
+        {
+          "youtubeId": "tqLlmTsqHBc",
+          "title": "Covenant & Conversation | Toldot | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical archive",
+          "relation": "A later philosophical companion for considering the family and covenantal questions in the chapter."
+        },
+        {
+          "youtubeId": "aYtt2n_WM5s",
+          "title": "Parshat  Toldot: an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Kabbalistic interpretation",
+          "relation": "A long-form later interpretive layer to compare with, not substitute for, the chapter's plain reading."
+        }
+      ]
     }
   ]
 }
