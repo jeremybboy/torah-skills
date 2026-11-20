@@ -276,6 +276,25 @@ h4 {
   color: #54301f;
 }
 
+.chapter-audio-preview {
+  border-block: 1px solid currentColor;
+  margin-block: 1.25rem;
+  padding-block: 0.75rem;
+}
+
+.chapter-audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.chapter-audio-controls audio {
+  display: block;
+  width: 20rem;
+  max-width: 100%;
+}
+
 .media-explorer {
   margin-top: 64px;
   padding-top: 34px;

@@ -33,6 +33,12 @@
     "slug": "vayetzei",
     "title": "Vayetzei",
     "path": "chapters/vayetzei.md",
-    "status": "review"
+    "status": "review",
+    "audioPreview": {
+      "path": "media/audio/vayetzei-gradium-preview.mp3",
+      "duration": "3:42",
+      "coverage": "opening three sections",
+      "narration": "Gradium narration"
+    }
   }
 ]
