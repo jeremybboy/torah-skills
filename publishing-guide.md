@@ -44,3 +44,11 @@ Recommended review labels:
 4. Update `media/collections.json` in the same weekly chapter pull request.
 5. Recheck current uploads on Friday and revise the existing pull request when a stronger weekly teaching appears.
 6. Treat every video as a reviewed learning companion, not as evidence for the chapter's primary-source claims.
+
+## Weekly Audio Preview
+
+1. After the audio workflow is merged, use **Actions → Weekly Gradium Audio → Run workflow** on `main`. The smoke test uses the repository secret `GRADIUM_API_KEY`, verifies a short MP3, and publishes nothing. The optional repository variable `GRADIUM_VOICE_ID` overrides the default voice.
+2. After a successful smoke test, set the Actions variable `WEEKLY_GRADIUM_AUDIO_ENABLED` to `true` and update the Monday draft and catch-up instructions to include `media/audio/<slug>-narration.txt` on the weekly branch. Write a plain-text, source-checked adaptation of the opening three sections, up to 6,000 characters. Do not include unpublished private notes.
+3. Once the existing workflow validates and opens the study PR, the audio workflow reads that branch's script as text, without running its code. It uses [Gradium REST TTS](https://docs.gradium.ai/guides/text-to-speech-rest) and commits only the MP3 and player metadata to the same open review branch. The expected commit guard prevents overwriting a newer edit. Audio is public on the branch; Pages only publishes after Jeremy merges.
+4. If audio fails or there is no narration, the study PR stays open without audio. Check the audio run in Actions and listen for pronunciation and source interpretation before merging. Leave the enable variable unset or set it to `false` to pause automatic synthesis without disabling the study workflow.
+5. The audio commit uses the built-in GitHub token, so it does not trigger ordinary push/PR Actions checks. Treat the audio run as evidence for the MP3 only. If branch protection requires a new site check, update the PR from your account to trigger it; do not bypass required checks.
