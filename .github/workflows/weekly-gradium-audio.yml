@@ -1,0 +1,71 @@
+name: Weekly Gradium Audio
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Open Weekly Parashah PR"]
+    types: [completed]
+    branches: ["automation/parashah-*"]
+
+permissions: {}
+
+jobs:
+  smoke-test:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - run: python3 scripts/weekly_gradium_audio.py smoke
+        env:
+          GRADIUM_API_KEY: ${{ secrets.GRADIUM_API_KEY }}
+          GRADIUM_VOICE_ID: ${{ vars.GRADIUM_VOICE_ID }}
+
+  add-audio:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      vars.WEEKLY_GRADIUM_AUDIO_ENABLED == 'true' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    permissions:
+      contents: write
+      pull-requests: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: weekly-gradium-${{ github.event.workflow_run.head_branch }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Read narration and chapter metadata as data
+        id: prepare
+        run: python3 scripts/weekly_gradium_audio.py prepare
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
+      - name: Generate and verify MP3
+        id: audio
+        if: steps.prepare.outputs.ready == 'true'
+        run: python3 scripts/weekly_gradium_audio.py generate
+        env:
+          GRADIUM_API_KEY: ${{ secrets.GRADIUM_API_KEY }}
+          GRADIUM_VOICE_ID: ${{ vars.GRADIUM_VOICE_ID }}
+      - name: Attach to the existing weekly review PR
+        if: steps.audio.outcome == 'success' && steps.prepare.outputs.ready == 'true'
+        run: python3 scripts/weekly_gradium_audio.py publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
+      - name: Explain audio failure
+        if: failure()
+        run: echo '::warning::Audio was not attached; the existing weekly study PR remains available for review.'

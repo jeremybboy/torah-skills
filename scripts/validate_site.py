@@ -53,7 +53,7 @@ def check_required_files() -> None:
             fail(f"missing required file: {rel}")
 
 
-def load_chapter_index() -> list[dict[str, str]]:
+def load_chapter_index() -> list[dict]:
     try:
         chapters = json.loads(read(ROOT / "chapters/index.json"))
     except json.JSONDecodeError as exc:
@@ -78,6 +78,20 @@ def load_chapter_index() -> list[dict[str, str]]:
             fail(f"invalid chapter path for {chapter['slug']}: {chapter['path']}")
         if not (ROOT / chapter["path"]).is_file():
             fail(f"chapter metadata points to missing file: {chapter['path']}")
+        if "audioPreview" in chapter:
+            preview = chapter["audioPreview"]
+            if not isinstance(preview, dict) or any(
+                not isinstance(preview.get(key), str) or not preview[key].strip()
+                for key in ("path", "duration", "coverage", "narration")
+            ):
+                fail(f"invalid audio preview metadata: {chapter['slug']}")
+            if preview["path"] != f"media/audio/{chapter['slug']}-gradium-preview.mp3":
+                fail(f"invalid audio preview path: {chapter['slug']}")
+            if not re.fullmatch(r"[0-9]+:[0-5][0-9]", preview["duration"]):
+                fail(f"invalid audio preview duration: {chapter['slug']}")
+            audio = ROOT / preview["path"]
+            if not audio.is_file() or not 1 <= audio.stat().st_size <= 8 * 1024 * 1024:
+                fail(f"missing or invalid-sized audio preview: {chapter['slug']}")
 
     return chapters
 
