@@ -4,6 +4,7 @@ import json
 import math
 import os
 import re
+import shutil
 import subprocess
 import sys
 import urllib.error
@@ -95,6 +96,17 @@ def prepare(directory):
         output.write("ready=true\n")
 
 
+def run_media_tool(command, stage, timeout):
+    try:
+        return subprocess.run(command, capture_output=True, check=True, timeout=timeout)
+    except subprocess.CalledProcessError as error:
+        raise ValueError(f"{stage} failed (exit {error.returncode}).") from None
+    except subprocess.TimeoutExpired:
+        raise ValueError(f"{stage} timed out.") from None
+    except OSError:
+        raise ValueError(f"Could not launch {stage}.") from None
+
+
 def synthesize(text, directory):
     text = text.strip()
     if not 1 <= len(text) <= MAX_TEXT:
@@ -102,6 +114,9 @@ def synthesize(text, directory):
     key = os.environ.get("GRADIUM_API_KEY")
     if not key:
         raise ValueError("GRADIUM_API_KEY is missing.")
+    missing = [tool for tool in ("ffmpeg", "ffprobe") if shutil.which(tool) is None]
+    if missing:
+        raise ValueError(f"Missing audio tools: {', '.join(missing)}. Gradium was not called.")
     voice = os.environ.get("GRADIUM_VOICE_ID") or DEFAULT_VOICE
     request = urllib.request.Request(
         ENDPOINT,
@@ -123,15 +138,15 @@ def synthesize(text, directory):
     wav = directory / "preview.wav"
     mp3 = directory / "preview.mp3"
     wav.write_bytes(data)
-    subprocess.run(
+    run_media_tool(
         ["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(wav),
          "-map_metadata", "-1", "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)],
-        capture_output=True, check=True, timeout=30,
+        "FFmpeg MP3 conversion", timeout=30,
     )
-    probe = subprocess.run(
+    probe = run_media_tool(
         ["ffprobe", "-v", "error", "-select_streams", "a:0", "-show_entries",
          "stream=codec_name:format=duration", "-of", "json", str(mp3)],
-        capture_output=True, check=True, timeout=10,
+        "FFprobe MP3 inspection", timeout=10,
     )
     media = json.loads(probe.stdout)
     duration = float(media["format"]["duration"])

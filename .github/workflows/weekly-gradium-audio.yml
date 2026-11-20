@@ -21,6 +21,12 @@ jobs:
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
+      - name: Install MP3 conversion tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          command -v ffmpeg
+          command -v ffprobe
       - run: python3 scripts/weekly_gradium_audio.py smoke
         env:
           GRADIUM_API_KEY: ${{ secrets.GRADIUM_API_KEY }}
@@ -52,6 +58,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
           WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
+      - name: Install MP3 conversion tools
+        if: steps.prepare.outputs.ready == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          command -v ffmpeg
+          command -v ffprobe
       - name: Generate and verify MP3
         id: audio
         if: steps.prepare.outputs.ready == 'true'
