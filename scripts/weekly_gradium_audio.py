@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
+import textwrap
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -16,7 +17,9 @@ from tempfile import TemporaryDirectory
 ENDPOINT = "https://api.gradium.ai/api/speech/tts"
 DEFAULT_VOICE = "Bla6SbVMczYnOhfK"
 MAX_TEXT = 6000
+MAX_SESSION_TEXT = 1500
 MAX_WAV = 32 * 1024 * 1024
+MAX_PCM = 600 * 48000 * 2
 MAX_MP3 = 8 * 1024 * 1024
 REPOSITORY = "jeremybboy/torah-skills"
 
@@ -107,6 +110,38 @@ def run_media_tool(command, stage, timeout):
         raise ValueError(f"Could not launch {stage}.") from None
 
 
+def narration_chunks(text):
+    chunk = ""
+    for sentence in re.split(r"(?<=[.!?])\s+|\n\s*\n", text):
+        for part in textwrap.wrap(sentence.strip(), width=MAX_SESSION_TEXT):
+            if chunk and len(chunk) + 1 + len(part) > MAX_SESSION_TEXT:
+                yield chunk
+                chunk = ""
+            chunk = f"{chunk} {part}" if chunk else part
+    if chunk:
+        yield chunk
+
+
+def fetch_wav(text, key, voice, opener):
+    request = urllib.request.Request(
+        ENDPOINT,
+        data=json.dumps({
+            "text": text, "voice_id": voice, "output_format": "wav", "only_audio": True,
+        }).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-api-key": key},
+    )
+    try:
+        with opener.open(request, timeout=90) as response:
+            data = response.read(MAX_WAV + 1)
+    except urllib.error.HTTPError as error:
+        raise ValueError(f"Gradium returned HTTP {error.code}.") from None
+    except (urllib.error.URLError, TimeoutError):
+        raise ValueError("Gradium request failed or timed out.") from None
+    if len(data) > MAX_WAV or not (data[:4] == b"RIFF" and data[8:12] == b"WAVE"):
+        raise ValueError("Gradium did not return a valid-sized WAV response.")
+    return data
+
+
 def synthesize(text, directory):
     text = text.strip()
     if not 1 <= len(text) <= MAX_TEXT:
@@ -118,28 +153,32 @@ def synthesize(text, directory):
     if missing:
         raise ValueError(f"Missing audio tools: {', '.join(missing)}. Gradium was not called.")
     voice = os.environ.get("GRADIUM_VOICE_ID") or DEFAULT_VOICE
-    request = urllib.request.Request(
-        ENDPOINT,
-        data=json.dumps({
-            "text": text, "voice_id": voice, "output_format": "wav", "only_audio": True,
-        }).encode("utf-8"),
-        headers={"Content-Type": "application/json", "x-api-key": key},
-    )
     opener = urllib.request.build_opener(NoRedirect())
-    try:
-        with opener.open(request, timeout=90) as response:
-            data = response.read(MAX_WAV + 1)
-    except urllib.error.HTTPError as error:
-        raise ValueError(f"Gradium returned HTTP {error.code}.") from None
-    except (urllib.error.URLError, TimeoutError):
-        raise ValueError("Gradium request failed or timed out.") from None
-    if len(data) > MAX_WAV or not (data[:4] == b"RIFF" and data[8:12] == b"WAVE"):
-        raise ValueError("Gradium did not return a valid-sized WAV response.")
+    chunks = list(narration_chunks(text))
     wav = directory / "preview.wav"
+    pcm = directory / "preview.pcm"
     mp3 = directory / "preview.mp3"
-    wav.write_bytes(data)
+    total_bytes = 0
+    with pcm.open("wb") as output:
+        for number, chunk in enumerate(chunks, 1):
+            try:
+                wav.write_bytes(fetch_wav(chunk, key, voice, opener))
+                decoded = run_media_tool(
+                    ["ffmpeg", "-nostdin", "-v", "error", "-i", str(wav),
+                     "-map", "0:a:0", "-ar", "48000", "-ac", "1", "-f", "s16le", "pipe:1"],
+                    "FFmpeg WAV decoding", timeout=30,
+                ).stdout
+                if not decoded:
+                    raise ValueError("Gradium returned a WAV with no audio samples.")
+                total_bytes += len(decoded)
+                if total_bytes > MAX_PCM:
+                    raise ValueError("Audio exceeds the 10-minute preview limit.")
+            except ValueError as error:
+                raise ValueError(f"Audio segment {number}/{len(chunks)}: {error}") from None
+            output.write(decoded)
     run_media_tool(
-        ["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(wav),
+        ["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "s16le",
+         "-ar", "48000", "-ac", "1", "-i", str(pcm),
          "-map_metadata", "-1", "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)],
         "FFmpeg MP3 conversion", timeout=30,
     )
