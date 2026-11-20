@@ -42,6 +42,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: read
+    env:
+      WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
+      WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
@@ -56,8 +59,6 @@ jobs:
         run: python3 scripts/weekly_gradium_audio.py prepare
         env:
           GH_TOKEN: ${{ github.token }}
-          WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
-          WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
       - name: Install MP3 conversion tools
         if: steps.prepare.outputs.ready == 'true'
         run: |
@@ -77,8 +78,6 @@ jobs:
         run: python3 scripts/weekly_gradium_audio.py publish
         env:
           GH_TOKEN: ${{ github.token }}
-          WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
-          WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
       - name: Explain audio failure
         if: failure()
         run: echo '::warning::Audio was not attached; the existing weekly study PR remains available for review.'
