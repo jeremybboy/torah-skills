@@ -255,6 +255,29 @@ async function loadMediaIndex() {
   );
 }
 
+function renderAudioPreview(chapter) {
+  const preview = chapter.audioPreview;
+  if (!preview) return;
+
+  const anchor = chapterEl.querySelector("h2") || chapterEl.querySelector("h1");
+  if (!anchor) return;
+
+  const title = `Listen to the ${chapter.title} audio preview`;
+  const path = escapeHtml(preview.path);
+  anchor.insertAdjacentHTML(
+    "afterend",
+    `<section class="chapter-audio-preview" aria-labelledby="chapter-audio-title">
+      <h3 id="chapter-audio-title">${escapeHtml(title)}</h3>
+      <p>Audio preview · ${escapeHtml(preview.duration)} · ${escapeHtml(preview.coverage)}</p>
+      <div class="chapter-audio-controls">
+        <audio controls preload="none" aria-labelledby="chapter-audio-title" src="${path}"></audio>
+        <a href="${path}" download>Download MP3</a>
+      </div>
+      <p>${escapeHtml(preview.narration)}. AI-assisted preview; Hebrew pronunciation and source interpretation still need human review.</p>
+    </section>`,
+  );
+}
+
 async function loadChapter(slug) {
   const chapter = chapters[slug];
   if (!chapter) {
@@ -274,6 +297,7 @@ async function loadChapter(slug) {
     if (!response.ok) throw new Error(`Could not load ${chapter.path}`);
     const markdown = await response.text();
     chapterEl.innerHTML = markdownToHtml(markdown);
+    renderAudioPreview(chapter);
     renderMediaExplorer(slug);
     document.title = `${chapter.title} | Torah Skills`;
     window.scrollTo({ top: 0, behavior: "smooth" });
