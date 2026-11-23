@@ -40,5 +40,11 @@
       "coverage": "opening three sections",
       "narration": "Gradium narration"
     }
+  },
+  {
+    "slug": "vayishlach",
+    "title": "Vayishlach",
+    "path": "chapters/vayishlach.md",
+    "status": "review"
   }
 ]

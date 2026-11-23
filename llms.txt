@@ -25,6 +25,8 @@ Most source links point to Sefaria. This project curates learning pathways and i
 
 - [Vayetzei](https://jeremybboy.github.io/torah-skills/chapters/vayetzei.md): Human-review draft for Genesis 28:10-32:3 and November 21, 2026, with five sugyot, five verses, an original responsive poem, and bilingual learning companions.
 
+- [Vayishlach](https://jeremybboy.github.io/torah-skills/chapters/vayishlach.md): Human-review draft for Genesis 32:4-36:43 and November 28, 2026, with five sugyot, five verses, and bilingual companions.
+
 ## Optional
 
 - [Media Collections](https://jeremybboy.github.io/torah-skills/media/collections.json): Reviewed bilingual video sets rendered by the in-page media explorer.
