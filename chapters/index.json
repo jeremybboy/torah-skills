@@ -40,5 +40,17 @@
       "coverage": "opening three sections",
       "narration": "Gradium narration"
     }
+  },
+  {
+    "slug": "vayishlach",
+    "title": "Vayishlach",
+    "path": "chapters/vayishlach.md",
+    "status": "review",
+    "audioPreview": {
+      "path": "media/audio/vayishlach-gradium-preview.mp3",
+      "duration": "1:24",
+      "coverage": "opening three sections",
+      "narration": "Gradium narration"
+    }
   }
 ]

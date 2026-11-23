@@ -1,6 +1,6 @@
 {
   "status": "editorial-test",
-  "curatedAt": "2026-11-16",
+  "curatedAt": "2026-11-23",
   "curationNote": "Six-video bilingual test set. Every item requires human review; inclusion does not imply endorsement of every claim in the video.",
   "collections": [
     {
@@ -310,6 +310,68 @@
           "language": "en",
           "format": "Kabbalistic interpretation",
           "relation": "A long-form later mystical and Chassidic layer, explicitly labeled as interpretation rather than peshat or evidence for the chapter's classical-source claims."
+        }
+      ]
+    },
+    {
+      "slug": "vayishlach",
+      "title": "Vayishlach",
+      "compareWith": "vayetzei",
+      "summary": "Three French and three English companions. Four channels recur from Vayetzei (Torah-Box, Ohr Somayach, Rabbi Sacks and Rabbi Shusterman); exact French SHOFAR and HEVRATPINTO videos were not verified, so the two alternatives explain their inclusion. IDs, titles, channels and YouTube oEmbed checked November 23, 2026. Language labels use publisher context; human listening remains pending. No current Kaplan upload was verified; keep the exact-portion archive and recheck Friday.",
+      "videos": [
+        {
+          "youtubeId": "KaR7OgixDpw",
+          "title": "Résumé de la PARACHA VAYICHLA'H - Yaakov VS Essav, Dina et Shékhem, Beth El, Mort d'Its'hak,...",
+          "channel": "Torah-Box",
+          "channelUrl": "https://www.youtube.com/@torahbox",
+          "language": "fr",
+          "format": "Résumé visuel familial avec illustrations IA",
+          "relation": "Repères pour situer la rencontre avec Ésaü, Dina et le retour à Béthel. Les images ne sont pas des sources; la section sur Dina mérite un accompagnement adapté."
+        },
+        {
+          "youtubeId": "AuvK1rNWbNU",
+          "title": "Vayichla'h : Israël, la force fragile",
+          "channel": "Akadem",
+          "channelUrl": "https://www.youtube.com/@AkademTV",
+          "language": "fr",
+          "format": "Lecture thématique — archive",
+          "relation": "Hors liste : retenu pour le rapprochement précis entre le nom Israël, la force et la vulnérabilité après le combat."
+        },
+        {
+          "youtubeId": "m4T69YHEgOY",
+          "title": "Le pont très étroit de la vie... Parachat Vayichla'h  selon Rabbi Nahman -  Rav Chlomo Valensi",
+          "channel": "Rav Chlomo Valensi",
+          "channelUrl": "https://www.youtube.com/@ravchlomovalensi",
+          "language": "fr",
+          "format": "Réflexion hassidique courte — archive",
+          "relation": "Hors liste : bref compagnon francophone sur la peur, explicitement étiqueté comme lecture hassidique et non comme peshat."
+        },
+        {
+          "youtubeId": "qX2V6PUq9iw",
+          "title": "The Meeting of Yaakov and Eisav PT 1 - Vayishlach (Rabbi Dovid Kaplan) (Weekly Parsha)",
+          "channel": "Ohr Somayach",
+          "channelUrl": "https://www.youtube.com/@OhrSomayach",
+          "language": "en",
+          "format": "Weekly teaching — archive from 2025",
+          "relation": "Kaplan's exact-portion archive supplies a recurring teacher's perspective on Jacob's encounter. No 2026 Vayishlach upload was verified at drafting; recheck Friday."
+        },
+        {
+          "youtubeId": "hJybOAiyZZk",
+          "title": "Covenant & Conversation | Vayishlach | Rabbi Sacks",
+          "channel": "The Rabbi Sacks Legacy",
+          "channelUrl": "https://www.youtube.com/@rabbisacks",
+          "language": "en",
+          "format": "Philosophical teaching — archive",
+          "relation": "Keeps the recurring Sacks series and offers a philosophical companion for Jacob's encounter and its moral questions."
+        },
+        {
+          "youtubeId": "5N56LORzQG8",
+          "title": "Parshat  Vayishlach: an In Depth Analysis with Kabbalistic Insights",
+          "channel": "Rabbi Yosef Shusterman",
+          "channelUrl": "https://www.youtube.com/@bhchabad",
+          "language": "en",
+          "format": "Long-form Kabbalistic interpretation — archive",
+          "relation": "An explicitly later interpretive layer alongside the chapter, not evidence for its plain-text or classical-source claims."
         }
       ]
     }

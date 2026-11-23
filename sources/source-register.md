@@ -58,6 +58,14 @@ Non-Sefaria sources are used when they are better suited for calendar data, artw
 - Comparison: no Toldot collection exists on main; keep that missing-week fact visible and compare channel continuity with Chayei Sara rather than inventing a prior set.
 - Review status: human-review draft; verify Hebrew, transliteration, interpretations, haftarah custom, poem and media. Videos are companions, not primary or classical evidence.
 
+## Vayishlach
+
+- Primary reading: [Genesis 32:4–36:43](https://www.sefaria.org/Genesis.32.4-36.43); see [Hosea 12:4–5](https://www.sefaria.org/Hosea.12.4-5) for prophetic reception of the struggle.
+- Calendar: [Hebcal](https://www.hebcal.com/sedrot/vayishlach-20261128), November 28, 2026 / 18 Kislev 5787, Los Angeles/Diaspora, single regular portion. Haftarah [Obadiah 1:1–21](https://www.sefaria.org/Obadiah.1.1-21); Hebcal also lists Jeremiah 30:10–22 as an alternate. Confirm local custom.
+- Classical anchors: Rashi on Genesis 32:8 and 33:4; Ramban on 34:13; Chullin 91a. Distinguish narrative, commentary, law, and modern application; do not infer Dinah's own words or motives.
+- Media: six videos with verified IDs, titles, channels, and oEmbed, three French and three English; language labels based on publisher context, pending a listening check. Kaplan's same-portion archive is a placeholder until this year's weekly upload is verified.
+- Review status: verify Hebrew, transliteration, renderings, narration and sensitive framing before publication; video companions are not evidence.
+
 ## Verification Standard
 
 Each chapter should identify:
