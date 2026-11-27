@@ -2,6 +2,7 @@ import array
 import json
 import os
 import re
+import struct
 import subprocess
 import urllib.error
 import urllib.request
@@ -49,6 +50,21 @@ def request_wav(text, key, voice):
     if len(data) > MAX_WAV or data[:4] != b"RIFF" or data[8:12] != b"WAVE":
         raise ValueError("Gradium returned an invalid or oversized WAV.")
     return data
+
+
+def normalize_wav(data):
+    # Gradium's streaming WAV uses all-ones sizes in the canonical PCM header.
+    if data[4:8] != b"\xff" * 4:
+        return data
+    if len(data) <= 44 or data[36:44] != b"data" + b"\xff" * 4 or (len(data) - 44) % 2:
+        raise ValueError("Unexpected streaming WAV layout.")
+    channel_count, rate, bits = struct.unpack_from("<HI6xH", data, 22)
+    if (channel_count, rate, bits) != (1, 48000, 16):
+        raise ValueError("Unexpected streaming audio format.")
+    wav = bytearray(data)
+    struct.pack_into("<I", wav, 4, len(wav) - 8)
+    struct.pack_into("<I", wav, 40, len(wav) - 44)
+    return wav
 
 
 def convert_to_pcm(wav_path, tempo=1):
@@ -101,16 +117,11 @@ def main():
     voice = os.environ.get("GRADIUM_VOICE_ID") or DEFAULT_VOICE
     folder = Path(os.environ["RUNNER_TEMP"]) / "vayishlach-take"
     folder.mkdir()
-    paths = []
-    for i, section in enumerate(sections, start=1):
+    for i, section in enumerate(sections[1:], start=2):
         print(f"Rendering section {i}/{len(sections)} ({len(section)} characters).", flush=True)
         path = folder / f"section-{i}.wav"
-        path.write_bytes(request_wav(section, key, voice))
+        path.write_bytes(normalize_wav(request_wav(section, key, voice)))
         trim_edges(convert_to_pcm(path))
-        paths.append(path)
-    assemble(folder, paths, sum(len(section.split()) for section in sections))
-    for path in paths:
-        path.unlink()
 
 
 if __name__ == "__main__":
