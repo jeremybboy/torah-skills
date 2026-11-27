@@ -46,7 +46,7 @@ jobs:
       WEEKLY_BRANCH: ${{ github.event.workflow_run.head_branch }}
       WEEKLY_SHA: ${{ github.event.workflow_run.head_sha }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     concurrency:
       group: weekly-gradium-${{ github.event.workflow_run.head_branch }}
     steps:

@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
+import array
 import base64
 import json
 import math
 import os
 import re
 import shutil
+import struct
 import subprocess
 import sys
+import textwrap
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -16,7 +19,13 @@ from tempfile import TemporaryDirectory
 ENDPOINT = "https://api.gradium.ai/api/speech/tts"
 DEFAULT_VOICE = "Bla6SbVMczYnOhfK"
 MAX_TEXT = 6000
+MAX_SESSION_TEXT = 1500
 MAX_WAV = 32 * 1024 * 1024
+SAMPLE_RATE = 48_000
+BYTES_PER_SAMPLE = 2
+MAX_PCM = 600 * SAMPLE_RATE * BYTES_PER_SAMPLE
+TARGET_WPM = 122
+PAUSE_MARKER = re.compile(r"(?m)^\[pause (3\.0|1\.1)\][ \t]*$")
 MAX_MP3 = 8 * 1024 * 1024
 REPOSITORY = "jeremybboy/torah-skills"
 
@@ -107,6 +116,90 @@ def run_media_tool(command, stage, timeout):
         raise ValueError(f"Could not launch {stage}.") from None
 
 
+def narration_chunks(text):
+    chunk = ""
+    for sentence in re.split(r"(?<=[.!?])\s+|\n\s*\n", text):
+        for part in textwrap.wrap(sentence.strip(), width=MAX_SESSION_TEXT):
+            if chunk and len(chunk) + 1 + len(part) > MAX_SESSION_TEXT:
+                yield chunk
+                chunk = ""
+            chunk = f"{chunk} {part}" if chunk else part
+    if chunk:
+        yield chunk
+
+
+def narration_segments(text):
+    pieces = PAUSE_MARKER.split(text)
+    for index in range(0, len(pieces), 2):
+        section = pieces[index].strip()
+        if not section or re.search(r"(?im)^\s*\[pause\b", section):
+            raise ValueError("Use [pause 3.0] or [pause 1.1] on its own line between spoken sections.")
+        pause = float(pieces[index + 1]) if index + 1 < len(pieces) else 0
+        chunks = [section] if len(section) <= MAX_SESSION_TEXT else list(narration_chunks(section))
+        for number, chunk in enumerate(chunks, 1):
+            yield chunk, pause if number == len(chunks) else 0
+
+
+def normalize_streaming_wav(data):
+    # Gradium streams PCM WAVs with unknown RIFF and data sizes.
+    if data[4:8] != b"\xff" * 4:
+        return data
+    pcm_format = struct.pack(
+        "<4sIHHIIHH", b"fmt ", 16, 1, 1, SAMPLE_RATE,
+        SAMPLE_RATE * BYTES_PER_SAMPLE, BYTES_PER_SAMPLE, 16,
+    )
+    if (
+        len(data) <= 44
+        or data[12:36] != pcm_format
+        or data[36:44] != b"data" + b"\xff" * 4
+        or (len(data) - 44) % BYTES_PER_SAMPLE
+    ):
+        raise ValueError("Invalid streaming WAV format.")
+    wav = bytearray(data)
+    struct.pack_into("<I", wav, 4, len(wav) - 8)
+    struct.pack_into("<I", wav, 40, len(wav) - 44)
+    return wav
+
+
+def decode_speech(wav, tempo=1):
+    filters = ["-af", f"atempo={tempo:.5f}"] if tempo != 1 else []
+    pcm = run_media_tool(
+        ["ffmpeg", "-nostdin", "-v", "error", "-xerror", "-i", str(wav), "-map", "0:a:0",
+         *filters, "-ar", str(SAMPLE_RATE), "-ac", "1", "-f", "s16le", "pipe:1"],
+        "FFmpeg WAV decoding", timeout=30,
+    ).stdout
+    samples = array.array("h", pcm)
+    if sys.byteorder != "little":
+        samples.byteswap()
+    first = next((i for i, sample in enumerate(samples) if abs(sample) > 65), None)
+    last = next((len(samples) - i for i, sample in enumerate(reversed(samples)) if abs(sample) > 65), None)
+    if first is None or last is None:
+        raise ValueError("Gradium returned a WAV with no audible samples.")
+    margin = round(SAMPLE_RATE * 0.04)
+    return pcm[BYTES_PER_SAMPLE * max(0, first - margin):BYTES_PER_SAMPLE * (last + margin)]
+
+
+def fetch_wav(text, key, voice, opener, paced):
+    payload = {"text": text, "voice_id": voice, "output_format": "wav", "only_audio": True}
+    if paced:
+        payload["json_config"] = {"padding_bonus": 1.25}
+    request = urllib.request.Request(
+        ENDPOINT,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-api-key": key},
+    )
+    try:
+        with opener.open(request, timeout=90) as response:
+            data = response.read(MAX_WAV + 1)
+    except urllib.error.HTTPError as error:
+        raise ValueError(f"Gradium returned HTTP {error.code}.") from None
+    except (urllib.error.URLError, TimeoutError):
+        raise ValueError("Gradium request failed or timed out.") from None
+    if len(data) > MAX_WAV or not (data[:4] == b"RIFF" and data[8:12] == b"WAVE"):
+        raise ValueError("Gradium did not return a valid-sized WAV response.")
+    return normalize_streaming_wav(data)
+
+
 def synthesize(text, directory):
     text = text.strip()
     if not 1 <= len(text) <= MAX_TEXT:
@@ -118,28 +211,35 @@ def synthesize(text, directory):
     if missing:
         raise ValueError(f"Missing audio tools: {', '.join(missing)}. Gradium was not called.")
     voice = os.environ.get("GRADIUM_VOICE_ID") or DEFAULT_VOICE
-    request = urllib.request.Request(
-        ENDPOINT,
-        data=json.dumps({
-            "text": text, "voice_id": voice, "output_format": "wav", "only_audio": True,
-        }).encode("utf-8"),
-        headers={"Content-Type": "application/json", "x-api-key": key},
-    )
     opener = urllib.request.build_opener(NoRedirect())
-    try:
-        with opener.open(request, timeout=90) as response:
-            data = response.read(MAX_WAV + 1)
-    except urllib.error.HTTPError as error:
-        raise ValueError(f"Gradium returned HTTP {error.code}.") from None
-    except (urllib.error.URLError, TimeoutError):
-        raise ValueError("Gradium request failed or timed out.") from None
-    if len(data) > MAX_WAV or not (data[:4] == b"RIFF" and data[8:12] == b"WAVE"):
-        raise ValueError("Gradium did not return a valid-sized WAV response.")
+    segments = list(narration_segments(text))
+    paced = any(pause for _, pause in segments)
     wav = directory / "preview.wav"
+    pcm = directory / "preview.pcm"
     mp3 = directory / "preview.mp3"
-    wav.write_bytes(data)
+    total_bytes = 0
+    with pcm.open("wb") as output:
+        for number, (chunk, pause) in enumerate(segments, 1):
+            try:
+                wav.write_bytes(fetch_wav(chunk, key, voice, opener, paced))
+                decoded = decode_speech(wav)
+                if paced:
+                    speech_seconds = len(decoded) / (SAMPLE_RATE * BYTES_PER_SAMPLE)
+                    target_seconds = len(chunk.split()) * 60 / TARGET_WPM
+                    tempo = max(0.8, min(1.75, speech_seconds / target_seconds))
+                    if abs(tempo - 1) > 0.04:
+                        decoded = decode_speech(wav, tempo)
+                silence_bytes = round(pause * SAMPLE_RATE) * BYTES_PER_SAMPLE
+                total_bytes += len(decoded) + silence_bytes
+                if total_bytes > MAX_PCM:
+                    raise ValueError("Audio exceeds the 10-minute preview limit.")
+            except ValueError as error:
+                raise ValueError(f"Audio segment {number}/{len(segments)}: {error}") from None
+            output.write(decoded)
+            output.write(bytes(silence_bytes))
     run_media_tool(
-        ["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(wav),
+        ["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "s16le",
+         "-ar", str(SAMPLE_RATE), "-ac", "1", "-i", str(pcm),
          "-map_metadata", "-1", "-codec:a", "libmp3lame", "-b:a", "96k", str(mp3)],
         "FFmpeg MP3 conversion", timeout=30,
     )
@@ -168,7 +268,7 @@ def generate(directory):
     entry(index, slug)["audioPreview"] = {
         "path": f"media/audio/{slug}-gradium-preview.mp3",
         "duration": duration,
-        "coverage": "opening three sections",
+        "coverage": "weekly spoken study" if PAUSE_MARKER.search(text) else "opening three sections",
         "narration": "Gradium narration",
     }
     (directory / "index.json").write_text(
